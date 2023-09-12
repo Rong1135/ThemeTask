@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+}
+
+header {
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  border: 2px solid blue;
+}
+header #openSidebarButton {
+  position: fixed;
+  top: 4%;
+  left: 5%;
+  font-size: large;
+  border: none;
+  cursor: pointer;
+}
+
+main {
+  flex-grow: 1;
+  width: 100%;
+  border: 2px solid green;
+  transition: all 0.5s ease-in-out;
+}
+
+aside {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
+  border: 2px solid red;
+}
+aside #closeSidebarButton {
+  position: relative;
+  top: 1.5%;
+  left: 90%;
+  cursor: pointer;
+}
+
+main.move-right,
+header.move-right {
+  margin-left: 35%;
+  width: 65%;
+}
+
+aside.move-left {
+  width: 35%;
+}/*# sourceMappingURL=style.css.map */
