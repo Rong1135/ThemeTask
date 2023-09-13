@@ -14,7 +14,33 @@
     </header>
 
     <main>
-      <h1>main</h1>
+      <section class="input-container">
+        <form action="" id="todoForm">
+          <input
+            type="text"
+            name="inputText"
+            id="inputText"
+            placeholder="寫些什麼吧......"
+          />
+          <button id="addButton">&plus;</button>
+        </form>
+      </section>
+
+      <section class="todolist-container">
+        <!-- 用來放置todo list -->
+
+        <!-- 測試用 -->
+        <div class="todolist-item">
+          <input type="checkbox" name="checkbox" id="checkbox" />
+          <p class="text-area">買牛奶</p>
+          <button class="deleteButton">&times;</button>
+        </div>
+        <div class="todolist-item">
+          <input type="checkbox" name="checkbox" id="checkbox" />
+          <p class="text-area">開會</p>
+          <button class="deleteButton">&times;</button>
+        </div>
+      </section>
     </main>
 
     <aside>

@@ -21,27 +21,79 @@ body {
   background-color: #f4f4f4;
 }
 
+button {
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
 header {
   width: 100%;
   padding: 1rem 0;
+  position: relative;
+  background-color: #333;
+  color: white;
   text-align: center;
   transition: all 0.5s ease-in-out;
-  border: 2px solid blue;
 }
 header #openSidebarButton {
   position: fixed;
   top: 4%;
   left: 5%;
   font-size: large;
-  border: none;
-  cursor: pointer;
 }
 
 main {
   flex-grow: 1;
   width: 100%;
-  border: 2px solid green;
   transition: all 0.5s ease-in-out;
+}
+main .input-container {
+  width: 85%;
+  margin: 0.5rem auto;
+}
+main .input-container #todoForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+main .input-container #todoForm input[type="text"] {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1px solid gray;
+  background-color: #f4f4f4;
+}
+main .input-container #todoForm #addButton {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+main .todolist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+main .todolist-container .todolist-item {
+  width: 80%;
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+main .todolist-container .todolist-item input[type="checkbox"] {
+  margin: 0 0.5rem;
+}
+main .todolist-container .todolist-item .text-area {
+  flex-grow: 1;
+}
+main .todolist-container .todolist-item .deleteButton {
+  margin: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
 }
 
 aside {
@@ -50,15 +102,16 @@ aside {
   position: fixed;
   top: 0;
   left: 0;
+  background-color: #333;
+  color: #fff;
   overflow-x: hidden;
   transition: all 0.5s ease-in-out;
-  border: 2px solid red;
 }
 aside #closeSidebarButton {
   position: relative;
-  top: 1.5%;
-  left: 90%;
-  cursor: pointer;
+  top: 4%;
+  left: 80%;
+  font-size: large;
 }
 
 main.move-right,
@@ -69,4 +122,4 @@ header.move-right {
 
 aside.move-left {
   width: 35%;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
