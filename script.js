@@ -83,8 +83,6 @@ class TodoListManager {
     todoItemDiv.appendChild(deleteButton);
 
     this.todoContainer.appendChild(todoItemDiv);
-
-    this.inputText.value = "";
   }
 }
 
