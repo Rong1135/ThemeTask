@@ -60,7 +60,7 @@ main .input-container #todoForm {
   margin: 0.5rem;
   padding: 1rem;
 }
-main .input-container #todoForm input[type="text"] {
+main .input-container #todoForm input[type=text] {
   flex-grow: 1;
   padding: 0.5rem;
   border: none;
@@ -85,13 +85,13 @@ main .todolist-container .todolist-item {
   border: 1px solid #ccc;
   background-color: #fff;
 }
-main .todolist-container .todolist-item input[type="checkbox"] {
+main .todolist-container .todolist-item input[type=checkbox] {
   margin: 0 0.5rem;
 }
 main .todolist-container .todolist-item .text-area {
   flex-grow: 1;
 }
-main .todolist-container .todolist-item .deleteButton {
+main .todolist-container .todolist-item button.delete-button {
   margin: 0 0.5rem;
   padding: 0.2rem 0.5rem;
 }
@@ -111,7 +111,11 @@ aside #closeSidebarButton {
   position: relative;
   top: 4%;
   left: 80%;
+  border: none;
+  background-color: transparent;
+  color: #fff;
   font-size: large;
+  cursor: pointer;
 }
 
 main.move-right,
@@ -122,4 +126,4 @@ header.move-right {
 
 aside.move-left {
   width: 35%;
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
