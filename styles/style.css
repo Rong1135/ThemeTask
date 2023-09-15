@@ -38,9 +38,9 @@ header {
   transition: all 0.5s ease-in-out;
 }
 header #openSidebarButton {
-  position: fixed;
-  top: 4%;
-  left: 5%;
+  position: absolute;
+  top: 30%;
+  left: 10%;
   font-size: large;
 }
 
@@ -48,10 +48,12 @@ main {
   flex-grow: 1;
   width: 100%;
   transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
 }
 main .input-container {
   width: 85%;
-  margin: 0.5rem auto;
+  margin: 0 auto;
 }
 main .input-container #todoForm {
   display: flex;
@@ -71,13 +73,16 @@ main .input-container #todoForm #addButton {
   margin-left: 0.5rem;
   padding: 0.5rem 1rem;
 }
-main .todolist-container {
+main .todolist-container,
+main .todo-completed-container {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0.5rem 0;
 }
-main .todolist-container .todolist-item {
+main .todolist-container .todolist-item,
+main .todo-completed-container .todolist-item {
   width: 80%;
   display: flex;
   margin-bottom: 0.5rem;
@@ -85,15 +90,27 @@ main .todolist-container .todolist-item {
   border: 1px solid #ccc;
   background-color: #fff;
 }
-main .todolist-container .todolist-item input[type=checkbox] {
+main .todolist-container .todolist-item input[type=checkbox],
+main .todo-completed-container .todolist-item input[type=checkbox] {
   margin: 0 0.5rem;
 }
-main .todolist-container .todolist-item .text-area {
+main .todolist-container .todolist-item .text-area,
+main .todo-completed-container .todolist-item .text-area {
   flex-grow: 1;
 }
-main .todolist-container .todolist-item button.delete-button {
+main .todolist-container .todolist-item button.delete-button,
+main .todo-completed-container .todolist-item button.delete-button {
   margin: 0 0.5rem;
   padding: 0.2rem 0.5rem;
+}
+main .todo-completed-container {
+  display: none;
+}
+main .todo-completed-container h3 {
+  width: 80%;
+  margin-bottom: 0.5rem;
+  color: gray;
+  text-align: left;
 }
 
 aside {

@@ -13,6 +13,7 @@ class TodoListManager {
     this.inputText = this.getElement("#inputText");
     this.addItemButton = this.getElement("#addButton");
     this.todoContainer = this.getElement(".todolist-container");
+    this.completedContainer = this.getElement(".todo-completed-container");
 
     this.setupEventListeners();
   }
@@ -45,14 +46,26 @@ class TodoListManager {
       );
     });
 
-    // 待辦事項輸入事件
+    // 待辦事項輸入表單事件
     this.todoForm.addEventListener("submit", (e) => {
       e.preventDefault(); // 防止頁面重新刷新
 
-      let inputValue = this.inputText.value;
-      this.createTodoItem(inputValue);
-      this.todoForm.reset();
+      if (this.inputText.value === "") {
+        alert("請輸入待辦事項!");
+      } else {
+        let inputValue = this.inputText.value;
+        this.createTodoItem(inputValue);
+        this.todoForm.reset();
+      }
     });
+  }
+
+  hideCompletedContainer() {
+    if (
+      !this.completedContainer.querySelector("input[type=checkbox]:checked")
+    ) {
+      this.completedContainer.style.display = "none";
+    }
   }
 
   // 創建待辦事項項目
@@ -75,7 +88,30 @@ class TodoListManager {
 
     // 刪除項目事件
     deleteButton.addEventListener("click", () => {
-      this.todoContainer.removeChild(todoItemDiv);
+      const parentContainer = todoItemDiv.closest(
+        ".todolist-container, .todo-completed-container"
+      );
+
+      if (parentContainer) {
+        parentContainer.removeChild(todoItemDiv);
+      }
+
+      this.hideCompletedContainer();
+    });
+
+    // 勾選checkbox時，更改`<p>`標籤的文字樣式
+    checkboxInput.addEventListener("change", () => {
+      if (checkboxInput.checked) {
+        textParagraph.style.textDecoration = "line-through";
+        // 移動項目
+        this.completedContainer.appendChild(todoItemDiv);
+        this.completedContainer.style.display = "flex";
+      } else {
+        textParagraph.style.textDecoration = "none";
+        this.todoContainer.appendChild(todoItemDiv);
+
+        this.hideCompletedContainer();
+      }
     });
 
     todoItemDiv.appendChild(checkboxInput);
