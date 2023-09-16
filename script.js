@@ -15,11 +15,21 @@ class TodoListManager {
     this.todoContainer = this.getElement(".todolist-container");
     this.completedContainer = this.getElement(".todo-completed-container");
 
+    // 背景色切換
+    this.toggleThemeButton = this.getElement("#toggleThemeButton");
+    this.subSettingList = this.getElement(".sub-setting-list");
+    this.defaultThemeButton = this.getElement("#defaultThemeButton");
+    this.lightThemeButton = this.getElement("#lightThemeButton");
+
     this.setupEventListeners();
   }
 
   getElement(selector) {
     return document.querySelector(selector);
+  }
+
+  setTheme(themeName) {
+    document.body.className = themeName;
   }
 
   setupEventListeners() {
@@ -57,6 +67,19 @@ class TodoListManager {
         this.createTodoItem(inputValue);
         this.todoForm.reset();
       }
+    });
+
+    // 背景色切換
+    this.toggleThemeButton.addEventListener("click", () => {
+      this.subSettingList.classList.toggle("show");
+    });
+
+    this.defaultThemeButton.addEventListener("click", () => {
+      this.setTheme("default-theme");
+    });
+
+    this.lightThemeButton.addEventListener("click", () => {
+      this.setTheme("light-theme");
     });
   }
 
