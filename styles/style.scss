@@ -1,0 +1,292 @@
+// 通用樣式
+@mixin common-styles {
+  button {
+    border: none;
+    cursor: pointer;
+  }
+
+  header {
+    width: 100%;
+    padding: 1rem 0;
+    position: relative;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+
+    #openSidebarButton {
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      font-size: large;
+    }
+  }
+
+  main {
+    flex-grow: 1;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+
+    display: flex;
+    flex-direction: column;
+
+    .input-container {
+      width: 85%;
+      margin: 0 auto;
+
+      #todoForm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.5rem;
+        padding: 1rem;
+
+        input[type="text"] {
+          flex-grow: 1;
+          padding: 0.5rem;
+          border: none;
+        }
+
+        #addButton {
+          margin-left: 0.5rem;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+
+    .todolist-container,
+    .todo-completed-container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0.5rem 0;
+
+      .todolist-item {
+        width: 80%;
+        display: flex;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+
+        input[type="checkbox"] {
+          margin: 0 0.5rem;
+        }
+
+        .text-area {
+          flex-grow: 1;
+        }
+
+        button.delete-button {
+          margin: 0 0.5rem;
+          padding: 0.2rem 0.5rem;
+        }
+      }
+    }
+
+    .todo-completed-container {
+      display: none;
+
+      h3 {
+        width: 80%;
+        margin-bottom: 0.5rem;
+        text-align: left;
+      }
+    }
+  }
+
+  aside {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: all 0.5s ease-in-out;
+
+    #closeSidebarButton {
+      position: relative;
+      top: 4%;
+      left: 80%;
+      border: none;
+      font-size: large;
+      cursor: pointer;
+    }
+
+    .setting-list {
+      margin-top: 1.5rem;
+      padding: 0.5rem;
+
+      li {
+        width: 70%;
+        margin: 0 auto;
+        list-style-type: none;
+
+        #toggleThemeButton {
+          width: 100%;
+          padding: 0.2rem 0;
+          font-size: large;
+        }
+
+        .sub-setting-list {
+          display: none;
+          width: 100%;
+          margin: 0.5rem 0;
+          list-style-type: none;
+
+          li > button {
+            width: 100%;
+            margin: 0.3rem 0;
+            padding: 0.2rem 0;
+          }
+        }
+
+        .sub-setting-list.show {
+          display: block;
+        }
+      }
+    }
+  }
+
+  main.move-right,
+  header.move-right {
+    margin-left: 35%;
+    width: calc(100% - 35%);
+  }
+
+  aside.move-left {
+    width: 35%;
+  }
+}
+
+// 主題樣式
+.default-theme {
+  background-color: #f4f4f4;
+
+  button {
+    background-color: #333;
+    color: #fff;
+  }
+
+  header {
+    background-color: #333;
+    color: white;
+  }
+
+  main {
+    .input-container {
+      #todoForm {
+        input#inputText[type="text"] {
+          background-color: #f4f4f4;
+          border-bottom: 1px solid gray;
+        }
+      }
+    }
+
+    .todolist-container,
+    .todo-completed-container {
+      .todolist-item {
+        border: 1px solid #ccc;
+        background-color: white;
+      }
+    }
+
+    .todo-completed-container {
+      h3 {
+        color: gray;
+      }
+    }
+  }
+
+  aside {
+    background-color: #333;
+    color: white;
+  }
+
+  @include common-styles;
+}
+
+.light-theme {
+  background-color: #f2ead3;
+
+  button {
+    background-color: #3f2305;
+    color: #f5f5f5;
+  }
+
+  header {
+    background-color: #3f2305;
+    color: #f5f5f5;
+  }
+
+  main {
+    .input-container {
+      #todoForm {
+        input#inputText[type="text"] {
+          border-bottom: 1px solid #3f2305;
+          background-color: #f2ead3;
+        }
+      }
+    }
+
+    .todolist-container,
+    .todo-completed-container {
+      .todolist-item {
+        border: 1px solid #ccc;
+        background-color: white;
+      }
+    }
+
+    .todo-completed-container {
+      h3 {
+        color: #3f2305;
+      }
+    }
+  }
+
+  aside {
+    background-color: #dfd7bf;
+    color: white;
+
+    #closeSidebarButton {
+      background-color: #dfd7bf;
+    }
+
+    button {
+      background-color: #dfd7bf;
+      color: #3f2305;
+      font-weight: bold;
+    }
+
+    .setting-list {
+      li {
+        #toggleThemeButton {
+          background-color: #f2ead3;
+        }
+
+        .sub-setting-list {
+          background-color: #dfd7bf;
+          li {
+            button {
+              :hover {
+                background-color: #dfd7bf;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include common-styles;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

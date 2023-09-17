@@ -1,20 +1,3 @@
-@charset "UTF-8";
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal;
-}
-
-/* 背景顏色 */
 .default-theme {
   background-color: #f4f4f4;
 }
@@ -26,9 +9,9 @@ h6 {
   background-color: #333;
   color: white;
 }
-.default-theme main .input-container #todoForm input[type=text] {
-  border-bottom: 1px solid gray;
+.default-theme main .input-container #todoForm input#inputText[type=text] {
   background-color: #f4f4f4;
+  border-bottom: 1px solid gray;
 }
 .default-theme main .todolist-container .todolist-item,
 .default-theme main .todo-completed-container .todolist-item {
@@ -42,6 +25,139 @@ h6 {
   background-color: #333;
   color: white;
 }
+.default-theme button {
+  border: none;
+  cursor: pointer;
+}
+.default-theme header {
+  width: 100%;
+  padding: 1rem 0;
+  position: relative;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+.default-theme header #openSidebarButton {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  font-size: large;
+}
+.default-theme main {
+  flex-grow: 1;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+.default-theme main .input-container {
+  width: 85%;
+  margin: 0 auto;
+}
+.default-theme main .input-container #todoForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+.default-theme main .input-container #todoForm input[type=text] {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: none;
+}
+.default-theme main .input-container #todoForm #addButton {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+.default-theme main .todolist-container,
+.default-theme main .todo-completed-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.default-theme main .todolist-container .todolist-item,
+.default-theme main .todo-completed-container .todolist-item {
+  width: 80%;
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+.default-theme main .todolist-container .todolist-item input[type=checkbox],
+.default-theme main .todo-completed-container .todolist-item input[type=checkbox] {
+  margin: 0 0.5rem;
+}
+.default-theme main .todolist-container .todolist-item .text-area,
+.default-theme main .todo-completed-container .todolist-item .text-area {
+  flex-grow: 1;
+}
+.default-theme main .todolist-container .todolist-item button.delete-button,
+.default-theme main .todo-completed-container .todolist-item button.delete-button {
+  margin: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
+}
+.default-theme main .todo-completed-container {
+  display: none;
+}
+.default-theme main .todo-completed-container h3 {
+  width: 80%;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+.default-theme aside {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.default-theme aside #closeSidebarButton {
+  position: relative;
+  top: 4%;
+  left: 80%;
+  border: none;
+  font-size: large;
+  cursor: pointer;
+}
+.default-theme aside .setting-list {
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+}
+.default-theme aside .setting-list li {
+  width: 70%;
+  margin: 0 auto;
+  list-style-type: none;
+}
+.default-theme aside .setting-list li #toggleThemeButton {
+  width: 100%;
+  padding: 0.2rem 0;
+  font-size: large;
+}
+.default-theme aside .setting-list li .sub-setting-list {
+  display: none;
+  width: 100%;
+  margin: 0.5rem 0;
+  list-style-type: none;
+}
+.default-theme aside .setting-list li .sub-setting-list li > button {
+  width: 100%;
+  margin: 0.3rem 0;
+  padding: 0.2rem 0;
+}
+.default-theme aside .setting-list li .sub-setting-list.show {
+  display: block;
+}
+.default-theme main.move-right,
+.default-theme header.move-right {
+  margin-left: 35%;
+  width: 65%;
+}
+.default-theme aside.move-left {
+  width: 35%;
+}
 
 .light-theme {
   background-color: #f2ead3;
@@ -54,8 +170,8 @@ h6 {
   background-color: #3f2305;
   color: #f5f5f5;
 }
-.light-theme main .input-container #todoForm input[type=text] {
-  border-bottom: 1px solid gray;
+.light-theme main .input-container #todoForm input#inputText[type=text] {
+  border-bottom: 1px solid #3f2305;
   background-color: #f2ead3;
 }
 .light-theme main .todolist-container .todolist-item,
@@ -87,98 +203,87 @@ h6 {
 .light-theme aside .setting-list li .sub-setting-list li button :hover {
   background-color: #dfd7bf;
 }
-
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-button {
+.light-theme button {
   border: none;
   cursor: pointer;
 }
-
-header {
+.light-theme header {
   width: 100%;
   padding: 1rem 0;
   position: relative;
   text-align: center;
   transition: all 0.5s ease-in-out;
 }
-header #openSidebarButton {
+.light-theme header #openSidebarButton {
   position: absolute;
   top: 30%;
   left: 10%;
   font-size: large;
 }
-
-main {
+.light-theme main {
   flex-grow: 1;
   width: 100%;
   transition: all 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
 }
-main .input-container {
+.light-theme main .input-container {
   width: 85%;
   margin: 0 auto;
 }
-main .input-container #todoForm {
+.light-theme main .input-container #todoForm {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
   padding: 1rem;
 }
-main .input-container #todoForm input[type=text] {
+.light-theme main .input-container #todoForm input[type=text] {
   flex-grow: 1;
   padding: 0.5rem;
   border: none;
 }
-main .input-container #todoForm #addButton {
+.light-theme main .input-container #todoForm #addButton {
   margin-left: 0.5rem;
   padding: 0.5rem 1rem;
 }
-main .todolist-container,
-main .todo-completed-container {
+.light-theme main .todolist-container,
+.light-theme main .todo-completed-container {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0.5rem 0;
 }
-main .todolist-container .todolist-item,
-main .todo-completed-container .todolist-item {
+.light-theme main .todolist-container .todolist-item,
+.light-theme main .todo-completed-container .todolist-item {
   width: 80%;
   display: flex;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
 }
-main .todolist-container .todolist-item input[type=checkbox],
-main .todo-completed-container .todolist-item input[type=checkbox] {
+.light-theme main .todolist-container .todolist-item input[type=checkbox],
+.light-theme main .todo-completed-container .todolist-item input[type=checkbox] {
   margin: 0 0.5rem;
 }
-main .todolist-container .todolist-item .text-area,
-main .todo-completed-container .todolist-item .text-area {
+.light-theme main .todolist-container .todolist-item .text-area,
+.light-theme main .todo-completed-container .todolist-item .text-area {
   flex-grow: 1;
 }
-main .todolist-container .todolist-item button.delete-button,
-main .todo-completed-container .todolist-item button.delete-button {
+.light-theme main .todolist-container .todolist-item button.delete-button,
+.light-theme main .todo-completed-container .todolist-item button.delete-button {
   margin: 0 0.5rem;
   padding: 0.2rem 0.5rem;
 }
-main .todo-completed-container {
+.light-theme main .todo-completed-container {
   display: none;
 }
-main .todo-completed-container h3 {
+.light-theme main .todo-completed-container h3 {
   width: 80%;
   margin-bottom: 0.5rem;
   text-align: left;
 }
-
-aside {
+.light-theme aside {
   height: 100%;
   width: 0;
   position: fixed;
@@ -187,7 +292,7 @@ aside {
   overflow-x: hidden;
   transition: all 0.5s ease-in-out;
 }
-aside #closeSidebarButton {
+.light-theme aside #closeSidebarButton {
   position: relative;
   top: 4%;
   left: 80%;
@@ -195,41 +300,52 @@ aside #closeSidebarButton {
   font-size: large;
   cursor: pointer;
 }
-aside .setting-list {
+.light-theme aside .setting-list {
   margin-top: 1.5rem;
   padding: 0.5rem;
 }
-aside .setting-list li {
+.light-theme aside .setting-list li {
   width: 70%;
   margin: 0 auto;
   list-style-type: none;
 }
-aside .setting-list li #toggleThemeButton {
+.light-theme aside .setting-list li #toggleThemeButton {
   width: 100%;
   padding: 0.2rem 0;
   font-size: large;
 }
-aside .setting-list li .sub-setting-list {
+.light-theme aside .setting-list li .sub-setting-list {
   display: none;
   width: 100%;
   margin: 0.5rem 0;
   list-style-type: none;
 }
-aside .setting-list li .sub-setting-list li > button {
+.light-theme aside .setting-list li .sub-setting-list li > button {
   width: 100%;
   margin: 0.3rem 0;
   padding: 0.2rem 0;
 }
-aside .setting-list li .sub-setting-list.show {
+.light-theme aside .setting-list li .sub-setting-list.show {
   display: block;
 }
-
-main.move-right,
-header.move-right {
+.light-theme main.move-right,
+.light-theme header.move-right {
   margin-left: 35%;
   width: 65%;
 }
-
-aside.move-left {
+.light-theme aside.move-left {
   width: 35%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }/*# sourceMappingURL=style.css.map */

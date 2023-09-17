@@ -25,6 +25,6 @@ secrets.txt
 node_modules/
 vendor/
 
-# 忽略scss檔案
-*.scss
-style.css.map
+# # 忽略scss檔案
+# *.scss
+# style.css.map
