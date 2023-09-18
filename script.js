@@ -20,6 +20,8 @@ class TodoListManager {
     this.subSettingList = this.getElement(".sub-setting-list");
     this.defaultThemeButton = this.getElement("#defaultThemeButton");
     this.lightThemeButton = this.getElement("#lightThemeButton");
+    this.nightThemeButton = this.getElement("#nightThemeButton");
+    this.NatureThemeButton = this.getElement("#NatureThemeButton");
 
     this.setupEventListeners();
   }
@@ -80,6 +82,14 @@ class TodoListManager {
 
     this.lightThemeButton.addEventListener("click", () => {
       this.setTheme("light-theme");
+    });
+
+    this.nightThemeButton.addEventListener("click", () => {
+      this.setTheme("night-theme");
+    });
+
+    this.NatureThemeButton.addEventListener("click", () => {
+      this.setTheme("nature-theme");
     });
   }
 

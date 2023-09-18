@@ -337,6 +337,375 @@
   width: 35%;
 }
 
+.night-theme {
+  background-color: black;
+}
+.night-theme button {
+  background-color: white;
+  color: black;
+}
+.night-theme header {
+  background-color: black;
+  color: white;
+  border-bottom: 1px solid white;
+}
+.night-theme header #openSidebarButton {
+  background-color: black;
+  color: white;
+}
+.night-theme main .input-container #todoForm input#inputText[type=text] {
+  border-bottom: 1px solid white;
+  background-color: black;
+  color: white;
+}
+.night-theme main .todolist-container .todolist-item,
+.night-theme main .todo-completed-container .todolist-item {
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+}
+.night-theme main .todo-completed-container h3 {
+  color: white;
+}
+.night-theme aside {
+  background-color: rgb(39, 39, 39);
+  color: white;
+  border-right: 1px solid white;
+}
+.night-theme aside #closeSidebarButton {
+  background-color: rgb(39, 39, 39);
+}
+.night-theme aside button {
+  background-color: rgb(39, 39, 39);
+  color: white;
+  font-weight: bold;
+}
+.night-theme aside .setting-list li #toggleThemeButton {
+  background-color: rgb(39, 39, 39);
+}
+.night-theme aside .setting-list li .sub-setting-list {
+  background-color: rgb(39, 39, 39);
+}
+.night-theme aside .setting-list li .sub-setting-list li button :hover {
+  background-color: rgb(39, 39, 39);
+}
+.night-theme button {
+  border: none;
+  cursor: pointer;
+}
+.night-theme header {
+  width: 100%;
+  padding: 1rem 0;
+  position: relative;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+.night-theme header #openSidebarButton {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  font-size: large;
+}
+.night-theme main {
+  flex-grow: 1;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+.night-theme main .input-container {
+  width: 85%;
+  margin: 0 auto;
+}
+.night-theme main .input-container #todoForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+.night-theme main .input-container #todoForm input[type=text] {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: none;
+}
+.night-theme main .input-container #todoForm #addButton {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+.night-theme main .todolist-container,
+.night-theme main .todo-completed-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.night-theme main .todolist-container .todolist-item,
+.night-theme main .todo-completed-container .todolist-item {
+  width: 80%;
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+.night-theme main .todolist-container .todolist-item input[type=checkbox],
+.night-theme main .todo-completed-container .todolist-item input[type=checkbox] {
+  margin: 0 0.5rem;
+}
+.night-theme main .todolist-container .todolist-item .text-area,
+.night-theme main .todo-completed-container .todolist-item .text-area {
+  flex-grow: 1;
+}
+.night-theme main .todolist-container .todolist-item button.delete-button,
+.night-theme main .todo-completed-container .todolist-item button.delete-button {
+  margin: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
+}
+.night-theme main .todo-completed-container {
+  display: none;
+}
+.night-theme main .todo-completed-container h3 {
+  width: 80%;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+.night-theme aside {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.night-theme aside #closeSidebarButton {
+  position: relative;
+  top: 4%;
+  left: 80%;
+  border: none;
+  font-size: large;
+  cursor: pointer;
+}
+.night-theme aside .setting-list {
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+}
+.night-theme aside .setting-list li {
+  width: 70%;
+  margin: 0 auto;
+  list-style-type: none;
+}
+.night-theme aside .setting-list li #toggleThemeButton {
+  width: 100%;
+  padding: 0.2rem 0;
+  font-size: large;
+}
+.night-theme aside .setting-list li .sub-setting-list {
+  display: none;
+  width: 100%;
+  margin: 0.5rem 0;
+  list-style-type: none;
+}
+.night-theme aside .setting-list li .sub-setting-list li > button {
+  width: 100%;
+  margin: 0.3rem 0;
+  padding: 0.2rem 0;
+}
+.night-theme aside .setting-list li .sub-setting-list.show {
+  display: block;
+}
+.night-theme main.move-right,
+.night-theme header.move-right {
+  margin-left: 35%;
+  width: 65%;
+}
+.night-theme aside.move-left {
+  width: 35%;
+}
+
+.nature-theme {
+  background-color: #cfff8d;
+}
+.nature-theme button {
+  background-color: #749f82;
+  color: #cfff8d;
+}
+.nature-theme header {
+  background-color: #425f57;
+  color: #a8e890;
+  border-bottom: 1px solid #749f82;
+}
+.nature-theme header #openSidebarButton {
+  background-color: #425f57;
+  color: #a8e890;
+}
+.nature-theme main .input-container #todoForm input#inputText[type=text] {
+  border-bottom: 1px solid #749f82;
+  background-color: #cfff8d;
+}
+.nature-theme main .todolist-container .todolist-item,
+.nature-theme main .todo-completed-container .todolist-item {
+  border: 3px solid #a8e890;
+}
+.nature-theme main .todo-completed-container h3 {
+  color: #749f82;
+}
+.nature-theme aside {
+  background-color: #749f82;
+  color: white;
+}
+.nature-theme aside #closeSidebarButton {
+  background-color: #749f82;
+  color: #a8e890;
+}
+.nature-theme aside button {
+  background-color: #749f82;
+  color: white;
+  font-weight: bold;
+}
+.nature-theme aside .setting-list li #toggleThemeButton {
+  background-color: #749f82;
+}
+.nature-theme aside .setting-list li .sub-setting-list {
+  background-color: #749f82;
+}
+.nature-theme aside .setting-list li .sub-setting-list li button :hover {
+  background-color: #749f82;
+}
+.nature-theme button {
+  border: none;
+  cursor: pointer;
+}
+.nature-theme header {
+  width: 100%;
+  padding: 1rem 0;
+  position: relative;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+.nature-theme header #openSidebarButton {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  font-size: large;
+}
+.nature-theme main {
+  flex-grow: 1;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+.nature-theme main .input-container {
+  width: 85%;
+  margin: 0 auto;
+}
+.nature-theme main .input-container #todoForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+.nature-theme main .input-container #todoForm input[type=text] {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: none;
+}
+.nature-theme main .input-container #todoForm #addButton {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+.nature-theme main .todolist-container,
+.nature-theme main .todo-completed-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.nature-theme main .todolist-container .todolist-item,
+.nature-theme main .todo-completed-container .todolist-item {
+  width: 80%;
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+.nature-theme main .todolist-container .todolist-item input[type=checkbox],
+.nature-theme main .todo-completed-container .todolist-item input[type=checkbox] {
+  margin: 0 0.5rem;
+}
+.nature-theme main .todolist-container .todolist-item .text-area,
+.nature-theme main .todo-completed-container .todolist-item .text-area {
+  flex-grow: 1;
+}
+.nature-theme main .todolist-container .todolist-item button.delete-button,
+.nature-theme main .todo-completed-container .todolist-item button.delete-button {
+  margin: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
+}
+.nature-theme main .todo-completed-container {
+  display: none;
+}
+.nature-theme main .todo-completed-container h3 {
+  width: 80%;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+.nature-theme aside {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.nature-theme aside #closeSidebarButton {
+  position: relative;
+  top: 4%;
+  left: 80%;
+  border: none;
+  font-size: large;
+  cursor: pointer;
+}
+.nature-theme aside .setting-list {
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+}
+.nature-theme aside .setting-list li {
+  width: 70%;
+  margin: 0 auto;
+  list-style-type: none;
+}
+.nature-theme aside .setting-list li #toggleThemeButton {
+  width: 100%;
+  padding: 0.2rem 0;
+  font-size: large;
+}
+.nature-theme aside .setting-list li .sub-setting-list {
+  display: none;
+  width: 100%;
+  margin: 0.5rem 0;
+  list-style-type: none;
+}
+.nature-theme aside .setting-list li .sub-setting-list li > button {
+  width: 100%;
+  margin: 0.3rem 0;
+  padding: 0.2rem 0;
+}
+.nature-theme aside .setting-list li .sub-setting-list.show {
+  display: block;
+}
+.nature-theme main.move-right,
+.nature-theme header.move-right {
+  margin-left: 35%;
+  width: 65%;
+}
+.nature-theme aside.move-left {
+  width: 35%;
+}
+
 body {
   display: flex;
   flex-direction: column;

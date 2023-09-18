@@ -278,6 +278,171 @@
   @include common-styles;
 }
 
+.night-theme {
+  background-color: black;
+
+  button {
+    background-color: white;
+    color: black;
+  }
+
+  header {
+    background-color: black;
+    color: white;
+    border-bottom: 1px solid white;
+
+    #openSidebarButton {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  main {
+    .input-container {
+      #todoForm {
+        input#inputText[type="text"] {
+          border-bottom: 1px solid white;
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+
+    .todolist-container,
+    .todo-completed-container {
+      .todolist-item {
+        border: 1px solid white;
+        background-color: black;
+        color: white;
+      }
+    }
+
+    .todo-completed-container {
+      h3 {
+        color: white;
+      }
+    }
+  }
+
+  aside {
+    background-color: rgb(39, 39, 39);
+    color: white;
+    border-right: 1px solid white;
+
+    #closeSidebarButton {
+      background-color: rgb(39, 39, 39);
+    }
+
+    button {
+      background-color: rgb(39, 39, 39);
+      color: white;
+      font-weight: bold;
+    }
+
+    .setting-list {
+      li {
+        #toggleThemeButton {
+          background-color: rgb(39, 39, 39);
+        }
+
+        .sub-setting-list {
+          background-color: rgb(39, 39, 39);
+          li {
+            button {
+              :hover {
+                background-color: rgb(39, 39, 39);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include common-styles;
+}
+
+.nature-theme {
+  background-color: #cfff8d;
+
+  button {
+    background-color: #749f82;
+    color: #cfff8d;
+  }
+
+  header {
+    background-color: #425f57;
+    color: #a8e890;
+    border-bottom: 1px solid #749f82;
+
+    #openSidebarButton {
+      background-color: #425f57;
+      color: #a8e890;
+    }
+  }
+
+  main {
+    .input-container {
+      #todoForm {
+        input#inputText[type="text"] {
+          border-bottom: 1px solid #749f82;
+          background-color: #cfff8d;
+        }
+      }
+    }
+
+    .todolist-container,
+    .todo-completed-container {
+      .todolist-item {
+        border: 3px solid #a8e890;
+      }
+    }
+
+    .todo-completed-container {
+      h3 {
+        color: #749f82;
+      }
+    }
+  }
+
+  aside {
+    background-color: #749f82;
+    color: white;
+
+    #closeSidebarButton {
+      background-color: #749f82;
+      color: #a8e890;
+    }
+
+    button {
+      background-color: #749f82;
+      color: white;
+      font-weight: bold;
+    }
+
+    .setting-list {
+      li {
+        #toggleThemeButton {
+          background-color: #749f82;
+        }
+
+        .sub-setting-list {
+          background-color: #749f82;
+          li {
+            button {
+              :hover {
+                background-color: #749f82;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include common-styles;
+}
+
 body {
   display: flex;
   flex-direction: column;
