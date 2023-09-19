@@ -1,10 +1,7 @@
 .default-theme {
   background-color: #f4f4f4;
 }
-.default-theme button {
-  background-color: #333;
-  color: #fff;
-}
+.default-theme .button-group,
 .default-theme header {
   background-color: #333;
   color: white;
@@ -24,6 +21,14 @@
 .default-theme aside {
   background-color: #333;
   color: white;
+}
+.default-theme aside #closeSidebarButton {
+  background-color: inherit;
+  color: inherit;
+}
+.default-theme aside .setting-list li #toggleThemeButton:hover,
+.default-theme aside .sub-setting-list li:hover {
+  background-color: #969393;
 }
 .default-theme button {
   border: none;
@@ -125,30 +130,31 @@
 .default-theme aside .setting-list {
   margin-top: 1.5rem;
   padding: 0.5rem;
-}
-.default-theme aside .setting-list li {
-  width: 70%;
-  margin: 0 auto;
-  list-style-type: none;
+  text-align: center;
 }
 .default-theme aside .setting-list li #toggleThemeButton {
   width: 100%;
-  padding: 0.2rem 0;
-  font-size: large;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 5px;
+  list-style-type: none;
 }
 .default-theme aside .setting-list li .sub-setting-list {
   display: none;
   width: 100%;
   margin: 0.5rem 0;
   list-style-type: none;
+  text-align: center;
 }
-.default-theme aside .setting-list li .sub-setting-list li > button {
-  width: 100%;
+.default-theme aside .setting-list li .sub-setting-list li {
+  width: 80%;
   margin: 0.3rem 0;
   padding: 0.2rem 0;
 }
 .default-theme aside .setting-list li .sub-setting-list.show {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .default-theme main.move-right,
 .default-theme header.move-right {
@@ -162,10 +168,7 @@
 .light-theme {
   background-color: #f2ead3;
 }
-.light-theme button {
-  background-color: #3f2305;
-  color: #f5f5f5;
-}
+.light-theme .button-group,
 .light-theme header {
   background-color: #3f2305;
   color: #f5f5f5;
@@ -184,24 +187,15 @@
 }
 .light-theme aside {
   background-color: #dfd7bf;
-  color: white;
+  color: rgb(48, 47, 47);
 }
 .light-theme aside #closeSidebarButton {
-  background-color: #dfd7bf;
+  background-color: inherit;
+  color: inherit;
 }
-.light-theme aside button {
-  background-color: #dfd7bf;
-  color: #3f2305;
-  font-weight: bold;
-}
-.light-theme aside .setting-list li #toggleThemeButton {
-  background-color: #f2ead3;
-}
-.light-theme aside .setting-list li .sub-setting-list {
-  background-color: #dfd7bf;
-}
-.light-theme aside .setting-list li .sub-setting-list li button :hover {
-  background-color: #dfd7bf;
+.light-theme aside .setting-list li #toggleThemeButton:hover,
+.light-theme aside .sub-setting-list li:hover {
+  background-color: #c8bb95;
 }
 .light-theme button {
   border: none;
@@ -303,30 +297,31 @@
 .light-theme aside .setting-list {
   margin-top: 1.5rem;
   padding: 0.5rem;
-}
-.light-theme aside .setting-list li {
-  width: 70%;
-  margin: 0 auto;
-  list-style-type: none;
+  text-align: center;
 }
 .light-theme aside .setting-list li #toggleThemeButton {
   width: 100%;
-  padding: 0.2rem 0;
-  font-size: large;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 5px;
+  list-style-type: none;
 }
 .light-theme aside .setting-list li .sub-setting-list {
   display: none;
   width: 100%;
   margin: 0.5rem 0;
   list-style-type: none;
+  text-align: center;
 }
-.light-theme aside .setting-list li .sub-setting-list li > button {
-  width: 100%;
+.light-theme aside .setting-list li .sub-setting-list li {
+  width: 80%;
   margin: 0.3rem 0;
   padding: 0.2rem 0;
 }
 .light-theme aside .setting-list li .sub-setting-list.show {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .light-theme main.move-right,
 .light-theme header.move-right {
@@ -340,7 +335,7 @@
 .night-theme {
   background-color: black;
 }
-.night-theme button {
+.night-theme .button-group {
   background-color: white;
   color: black;
 }
@@ -373,21 +368,12 @@
   border-right: 1px solid white;
 }
 .night-theme aside #closeSidebarButton {
-  background-color: rgb(39, 39, 39);
+  background-color: inherit;
+  color: inherit;
 }
-.night-theme aside button {
-  background-color: rgb(39, 39, 39);
-  color: white;
-  font-weight: bold;
-}
-.night-theme aside .setting-list li #toggleThemeButton {
-  background-color: rgb(39, 39, 39);
-}
-.night-theme aside .setting-list li .sub-setting-list {
-  background-color: rgb(39, 39, 39);
-}
-.night-theme aside .setting-list li .sub-setting-list li button :hover {
-  background-color: rgb(39, 39, 39);
+.night-theme aside .setting-list li #toggleThemeButton:hover,
+.night-theme aside .sub-setting-list li:hover {
+  background-color: rgb(132, 130, 130);
 }
 .night-theme button {
   border: none;
@@ -489,30 +475,31 @@
 .night-theme aside .setting-list {
   margin-top: 1.5rem;
   padding: 0.5rem;
-}
-.night-theme aside .setting-list li {
-  width: 70%;
-  margin: 0 auto;
-  list-style-type: none;
+  text-align: center;
 }
 .night-theme aside .setting-list li #toggleThemeButton {
   width: 100%;
-  padding: 0.2rem 0;
-  font-size: large;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 5px;
+  list-style-type: none;
 }
 .night-theme aside .setting-list li .sub-setting-list {
   display: none;
   width: 100%;
   margin: 0.5rem 0;
   list-style-type: none;
+  text-align: center;
 }
-.night-theme aside .setting-list li .sub-setting-list li > button {
-  width: 100%;
+.night-theme aside .setting-list li .sub-setting-list li {
+  width: 80%;
   margin: 0.3rem 0;
   padding: 0.2rem 0;
 }
 .night-theme aside .setting-list li .sub-setting-list.show {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .night-theme main.move-right,
 .night-theme header.move-right {
@@ -526,7 +513,7 @@
 .nature-theme {
   background-color: #cfff8d;
 }
-.nature-theme button {
+.nature-theme .button-group {
   background-color: #749f82;
   color: #cfff8d;
 }
@@ -555,22 +542,12 @@
   color: white;
 }
 .nature-theme aside #closeSidebarButton {
-  background-color: #749f82;
-  color: #a8e890;
+  background-color: inherit;
+  color: inherit;
 }
-.nature-theme aside button {
-  background-color: #749f82;
-  color: white;
-  font-weight: bold;
-}
-.nature-theme aside .setting-list li #toggleThemeButton {
-  background-color: #749f82;
-}
-.nature-theme aside .setting-list li .sub-setting-list {
-  background-color: #749f82;
-}
-.nature-theme aside .setting-list li .sub-setting-list li button :hover {
-  background-color: #749f82;
+.nature-theme aside .setting-list li #toggleThemeButton:hover,
+.nature-theme aside .sub-setting-list li:hover {
+  background-color: #96d3ae;
 }
 .nature-theme button {
   border: none;
@@ -672,30 +649,31 @@
 .nature-theme aside .setting-list {
   margin-top: 1.5rem;
   padding: 0.5rem;
-}
-.nature-theme aside .setting-list li {
-  width: 70%;
-  margin: 0 auto;
-  list-style-type: none;
+  text-align: center;
 }
 .nature-theme aside .setting-list li #toggleThemeButton {
   width: 100%;
-  padding: 0.2rem 0;
-  font-size: large;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 5px;
+  list-style-type: none;
 }
 .nature-theme aside .setting-list li .sub-setting-list {
   display: none;
   width: 100%;
   margin: 0.5rem 0;
   list-style-type: none;
+  text-align: center;
 }
-.nature-theme aside .setting-list li .sub-setting-list li > button {
-  width: 100%;
+.nature-theme aside .setting-list li .sub-setting-list li {
+  width: 80%;
   margin: 0.3rem 0;
   padding: 0.2rem 0;
 }
 .nature-theme aside .setting-list li .sub-setting-list.show {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .nature-theme main.move-right,
 .nature-theme header.move-right {

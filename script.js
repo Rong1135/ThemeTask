@@ -17,11 +17,12 @@ class TodoListManager {
 
     // 背景色切換
     this.toggleThemeButton = this.getElement("#toggleThemeButton");
+    this.settingList = this.getElement(".setting-list");
     this.subSettingList = this.getElement(".sub-setting-list");
     this.defaultThemeButton = this.getElement("#defaultThemeButton");
     this.lightThemeButton = this.getElement("#lightThemeButton");
     this.nightThemeButton = this.getElement("#nightThemeButton");
-    this.NatureThemeButton = this.getElement("#NatureThemeButton");
+    this.natureThemeButton = this.getElement("#natureThemeButton");
 
     this.setupEventListeners();
   }
@@ -88,7 +89,7 @@ class TodoListManager {
       this.setTheme("night-theme");
     });
 
-    this.NatureThemeButton.addEventListener("click", () => {
+    this.natureThemeButton.addEventListener("click", () => {
       this.setTheme("nature-theme");
     });
   }
@@ -117,6 +118,7 @@ class TodoListManager {
 
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-button");
+    deleteButton.classList.add("button-group");
     deleteButton.textContent = "\u00D7";
 
     // 刪除項目事件

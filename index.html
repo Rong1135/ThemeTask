@@ -9,7 +9,7 @@
   </head>
   <body class="default-theme">
     <header>
-      <button id="openSidebarButton">&gt;</button>
+      <button id="openSidebarButton" class="button-group">&gt;</button>
       <h1>ThemeTasker</h1>
     </header>
 
@@ -22,7 +22,7 @@
             id="inputText"
             placeholder="寫些什麼吧......"
           />
-          <button id="addButton">&plus;</button>
+          <button id="addButton" class="button-group">&plus;</button>
         </form>
       </section>
 
@@ -40,12 +40,12 @@
       <ul class="setting-list">
         <!-- 背景色 -->
         <li>
-          <button id="toggleThemeButton">背景色切換</button>
+          <span id="toggleThemeButton">背景色切換</span>
           <ul class="sub-setting-list">
-            <li><button id="defaultThemeButton">預設</button></li>
-            <li><button id="lightThemeButton">亮色</button></li>
-            <li><button id="nightThemeButton">夜間</button></li>
-            <li><button id="NatureThemeButton">自然</button></li>
+            <li id="defaultThemeButton">預設</li>
+            <li id="lightThemeButton">亮色</li>
+            <li id="nightThemeButton">夜間</li>
+            <li id="natureThemeButton">自然</li>
           </ul>
         </li>
       </ul>

@@ -4,14 +4,12 @@
     border: none;
     cursor: pointer;
   }
-
   header {
     width: 100%;
     padding: 1rem 0;
     position: relative;
     text-align: center;
     transition: all 0.5s ease-in-out;
-
     #openSidebarButton {
       position: absolute;
       top: 30%;
@@ -19,32 +17,27 @@
       font-size: large;
     }
   }
-
   main {
     flex-grow: 1;
     width: 100%;
     transition: all 0.5s ease-in-out;
-
     display: flex;
     flex-direction: column;
 
     .input-container {
       width: 85%;
       margin: 0 auto;
-
       #todoForm {
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 0.5rem;
         padding: 1rem;
-
         input[type="text"] {
           flex-grow: 1;
           padding: 0.5rem;
           border: none;
         }
-
         #addButton {
           margin-left: 0.5rem;
           padding: 0.5rem 1rem;
@@ -59,21 +52,17 @@
       flex-direction: column;
       align-items: center;
       margin: 0.5rem 0;
-
       .todolist-item {
         width: 80%;
         display: flex;
         margin-bottom: 0.5rem;
         padding: 0.5rem;
-
         input[type="checkbox"] {
           margin: 0 0.5rem;
         }
-
         .text-area {
           flex-grow: 1;
         }
-
         button.delete-button {
           margin: 0 0.5rem;
           padding: 0.2rem 0.5rem;
@@ -91,7 +80,6 @@
       }
     }
   }
-
   aside {
     height: 100%;
     width: 0;
@@ -113,16 +101,15 @@
     .setting-list {
       margin-top: 1.5rem;
       padding: 0.5rem;
+      text-align: center;
 
       li {
-        width: 70%;
-        margin: 0 auto;
-        list-style-type: none;
-
         #toggleThemeButton {
           width: 100%;
-          padding: 0.2rem 0;
-          font-size: large;
+          margin: auto;
+          padding: 0.5rem;
+          border-radius: 5px;
+          list-style-type: none;
         }
 
         .sub-setting-list {
@@ -130,46 +117,39 @@
           width: 100%;
           margin: 0.5rem 0;
           list-style-type: none;
+          text-align: center;
 
-          li > button {
-            width: 100%;
+          li {
+            width: 80%;
             margin: 0.3rem 0;
             padding: 0.2rem 0;
           }
         }
-
         .sub-setting-list.show {
-          display: block;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
       }
     }
   }
-
   main.move-right,
   header.move-right {
     margin-left: 35%;
     width: calc(100% - 35%);
   }
-
   aside.move-left {
     width: 35%;
   }
 }
-
 // 主題樣式
 .default-theme {
   background-color: #f4f4f4;
-
-  button {
-    background-color: #333;
-    color: #fff;
-  }
-
+  .button-group,
   header {
     background-color: #333;
     color: white;
   }
-
   main {
     .input-container {
       #todoForm {
@@ -179,7 +159,6 @@
         }
       }
     }
-
     .todolist-container,
     .todo-completed-container {
       .todolist-item {
@@ -187,43 +166,44 @@
         background-color: white;
       }
     }
-
     .todo-completed-container {
       h3 {
         color: gray;
       }
     }
   }
-
   aside {
     background-color: #333;
     color: white;
-  }
 
+    #closeSidebarButton {
+      background-color: inherit;
+      color: inherit;
+    }
+
+    .setting-list li #toggleThemeButton,
+    .sub-setting-list li {
+      &:hover {
+        background-color: #969393;
+      }
+    }
+  }
   @include common-styles;
 }
 
 .light-theme {
   background-color: #f2ead3;
 
-  button {
-    background-color: #3f2305;
-    color: #f5f5f5;
-  }
-
+  .button-group,
   header {
     background-color: #3f2305;
     color: #f5f5f5;
   }
 
   main {
-    .input-container {
-      #todoForm {
-        input#inputText[type="text"] {
-          border-bottom: 1px solid #3f2305;
-          background-color: #f2ead3;
-        }
-      }
+    .input-container #todoForm input#inputText[type="text"] {
+      border-bottom: 1px solid #3f2305;
+      background-color: #f2ead3;
     }
 
     .todolist-container,
@@ -243,45 +223,27 @@
 
   aside {
     background-color: #dfd7bf;
-    color: white;
+    color: rgb(48, 47, 47);
 
     #closeSidebarButton {
-      background-color: #dfd7bf;
+      background-color: inherit;
+      color: inherit;
     }
 
-    button {
-      background-color: #dfd7bf;
-      color: #3f2305;
-      font-weight: bold;
-    }
-
-    .setting-list {
-      li {
-        #toggleThemeButton {
-          background-color: #f2ead3;
-        }
-
-        .sub-setting-list {
-          background-color: #dfd7bf;
-          li {
-            button {
-              :hover {
-                background-color: #dfd7bf;
-              }
-            }
-          }
-        }
+    .setting-list li #toggleThemeButton,
+    .sub-setting-list li {
+      &:hover {
+        background-color: #c8bb95;
       }
     }
   }
-
   @include common-styles;
 }
 
 .night-theme {
   background-color: black;
 
-  button {
+  .button-group {
     background-color: white;
     color: black;
   }
@@ -330,31 +292,14 @@
     border-right: 1px solid white;
 
     #closeSidebarButton {
-      background-color: rgb(39, 39, 39);
+      background-color: inherit;
+      color: inherit;
     }
 
-    button {
-      background-color: rgb(39, 39, 39);
-      color: white;
-      font-weight: bold;
-    }
-
-    .setting-list {
-      li {
-        #toggleThemeButton {
-          background-color: rgb(39, 39, 39);
-        }
-
-        .sub-setting-list {
-          background-color: rgb(39, 39, 39);
-          li {
-            button {
-              :hover {
-                background-color: rgb(39, 39, 39);
-              }
-            }
-          }
-        }
+    .setting-list li #toggleThemeButton,
+    .sub-setting-list li {
+      &:hover {
+        background-color: rgb(132, 130, 130);
       }
     }
   }
@@ -365,7 +310,7 @@
 .nature-theme {
   background-color: #cfff8d;
 
-  button {
+  .button-group {
     background-color: #749f82;
     color: #cfff8d;
   }
@@ -410,32 +355,14 @@
     color: white;
 
     #closeSidebarButton {
-      background-color: #749f82;
-      color: #a8e890;
+      background-color: inherit;
+      color: inherit;
     }
 
-    button {
-      background-color: #749f82;
-      color: white;
-      font-weight: bold;
-    }
-
-    .setting-list {
-      li {
-        #toggleThemeButton {
-          background-color: #749f82;
-        }
-
-        .sub-setting-list {
-          background-color: #749f82;
-          li {
-            button {
-              :hover {
-                background-color: #749f82;
-              }
-            }
-          }
-        }
+    .setting-list li #toggleThemeButton,
+    .sub-setting-list li {
+      &:hover {
+        background-color: #96d3ae;
       }
     }
   }
@@ -449,7 +376,6 @@ body {
   height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 * {
   margin: 0;
   padding: 0;
