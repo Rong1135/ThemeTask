@@ -1,3 +1,16 @@
+@font-face {
+  font-family: "Font1";
+  src: url(../fonts/清松手寫體1.ttf);
+}
+@font-face {
+  font-family: "Font2";
+  src: url(../fonts/ChenYuluoyan-Thin.ttf);
+}
+@font-face {
+  font-family: "Font3";
+  src: url(../fonts/OpenSans-MediumItalic.ttf);
+}
+
 // 通用樣式
 @mixin common-styles {
   button {
@@ -104,9 +117,12 @@
       text-align: center;
 
       li {
-        #toggleThemeButton {
+        margin-bottom: 1.5rem;
+
+        span.selectorStyle {
           width: 100%;
           margin: auto;
+          margin-bottom: 1rem;
           padding: 0.5rem;
           border-radius: 5px;
           list-style-type: none;
@@ -140,6 +156,18 @@
   }
   aside.move-left {
     width: 35%;
+  }
+  div.theme-preview {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    top: 20%;
+    left: 35%;
+    z-index: 10;
+
+    canvas {
+      border: 1px solid red;
+    }
   }
 }
 // 主題樣式
@@ -181,7 +209,7 @@
       color: inherit;
     }
 
-    .setting-list li #toggleThemeButton,
+    ul.setting-list li span.selectorStyle,
     .sub-setting-list li {
       &:hover {
         background-color: #969393;
@@ -230,7 +258,7 @@
       color: inherit;
     }
 
-    .setting-list li #toggleThemeButton,
+    .setting-list li .selectorStyle,
     .sub-setting-list li {
       &:hover {
         background-color: #c8bb95;
@@ -296,7 +324,7 @@
       color: inherit;
     }
 
-    .setting-list li #toggleThemeButton,
+    .setting-list li .selectorStyle,
     .sub-setting-list li {
       &:hover {
         background-color: rgb(132, 130, 130);
@@ -359,7 +387,7 @@
       color: inherit;
     }
 
-    .setting-list li #toggleThemeButton,
+    .setting-list li .selectorStyle,
     .sub-setting-list li {
       &:hover {
         background-color: #96d3ae;
@@ -382,15 +410,16 @@ body {
   box-sizing: border-box;
 }
 
-div.theme-preview {
-  width: 80%;
-  height: 80%;
-  position: relative;
-  top: 20%;
-  left: 35%;
-  z-index: 10;
-
-  canvas {
-    border: 1px solid red;
-  }
+.default-font {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.font1 {
+  font-family: "font1", Helvetica, sans-serif;
+}
+.font2 {
+  font-family: "font2", Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+.font3 {
+  font-family: "font3", Helvetica, sans-serif;
 }

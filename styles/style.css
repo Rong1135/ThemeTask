@@ -1,3 +1,16 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Font1";
+  src: url(../fonts/清松手寫體1.ttf);
+}
+@font-face {
+  font-family: "Font2";
+  src: url(../fonts/ChenYuluoyan-Thin.ttf);
+}
+@font-face {
+  font-family: "Font3";
+  src: url(../fonts/OpenSans-MediumItalic.ttf);
+}
 .default-theme {
   background-color: #f4f4f4;
 }
@@ -26,7 +39,7 @@
   background-color: inherit;
   color: inherit;
 }
-.default-theme aside .setting-list li #toggleThemeButton:hover,
+.default-theme aside ul.setting-list li span.selectorStyle:hover,
 .default-theme aside .sub-setting-list li:hover {
   background-color: #969393;
 }
@@ -132,9 +145,13 @@
   padding: 0.5rem;
   text-align: center;
 }
-.default-theme aside .setting-list li #toggleThemeButton {
+.default-theme aside .setting-list li {
+  margin-bottom: 1.5rem;
+}
+.default-theme aside .setting-list li span.selectorStyle {
   width: 100%;
   margin: auto;
+  margin-bottom: 1rem;
   padding: 0.5rem;
   border-radius: 5px;
   list-style-type: none;
@@ -163,6 +180,17 @@
 }
 .default-theme aside.move-left {
   width: 35%;
+}
+.default-theme div.theme-preview {
+  width: 80%;
+  height: 80%;
+  position: relative;
+  top: 20%;
+  left: 35%;
+  z-index: 10;
+}
+.default-theme div.theme-preview canvas {
+  border: 1px solid red;
 }
 
 .light-theme {
@@ -193,7 +221,7 @@
   background-color: inherit;
   color: inherit;
 }
-.light-theme aside .setting-list li #toggleThemeButton:hover,
+.light-theme aside .setting-list li .selectorStyle:hover,
 .light-theme aside .sub-setting-list li:hover {
   background-color: #c8bb95;
 }
@@ -299,9 +327,13 @@
   padding: 0.5rem;
   text-align: center;
 }
-.light-theme aside .setting-list li #toggleThemeButton {
+.light-theme aside .setting-list li {
+  margin-bottom: 1.5rem;
+}
+.light-theme aside .setting-list li span.selectorStyle {
   width: 100%;
   margin: auto;
+  margin-bottom: 1rem;
   padding: 0.5rem;
   border-radius: 5px;
   list-style-type: none;
@@ -330,6 +362,17 @@
 }
 .light-theme aside.move-left {
   width: 35%;
+}
+.light-theme div.theme-preview {
+  width: 80%;
+  height: 80%;
+  position: relative;
+  top: 20%;
+  left: 35%;
+  z-index: 10;
+}
+.light-theme div.theme-preview canvas {
+  border: 1px solid red;
 }
 
 .night-theme {
@@ -371,7 +414,7 @@
   background-color: inherit;
   color: inherit;
 }
-.night-theme aside .setting-list li #toggleThemeButton:hover,
+.night-theme aside .setting-list li .selectorStyle:hover,
 .night-theme aside .sub-setting-list li:hover {
   background-color: rgb(132, 130, 130);
 }
@@ -477,9 +520,13 @@
   padding: 0.5rem;
   text-align: center;
 }
-.night-theme aside .setting-list li #toggleThemeButton {
+.night-theme aside .setting-list li {
+  margin-bottom: 1.5rem;
+}
+.night-theme aside .setting-list li span.selectorStyle {
   width: 100%;
   margin: auto;
+  margin-bottom: 1rem;
   padding: 0.5rem;
   border-radius: 5px;
   list-style-type: none;
@@ -508,6 +555,17 @@
 }
 .night-theme aside.move-left {
   width: 35%;
+}
+.night-theme div.theme-preview {
+  width: 80%;
+  height: 80%;
+  position: relative;
+  top: 20%;
+  left: 35%;
+  z-index: 10;
+}
+.night-theme div.theme-preview canvas {
+  border: 1px solid red;
 }
 
 .nature-theme {
@@ -545,7 +603,7 @@
   background-color: inherit;
   color: inherit;
 }
-.nature-theme aside .setting-list li #toggleThemeButton:hover,
+.nature-theme aside .setting-list li .selectorStyle:hover,
 .nature-theme aside .sub-setting-list li:hover {
   background-color: #96d3ae;
 }
@@ -651,9 +709,13 @@
   padding: 0.5rem;
   text-align: center;
 }
-.nature-theme aside .setting-list li #toggleThemeButton {
+.nature-theme aside .setting-list li {
+  margin-bottom: 1.5rem;
+}
+.nature-theme aside .setting-list li span.selectorStyle {
   width: 100%;
   margin: auto;
+  margin-bottom: 1rem;
   padding: 0.5rem;
   border-radius: 5px;
   list-style-type: none;
@@ -683,6 +745,17 @@
 .nature-theme aside.move-left {
   width: 35%;
 }
+.nature-theme div.theme-preview {
+  width: 80%;
+  height: 80%;
+  position: relative;
+  top: 20%;
+  left: 35%;
+  z-index: 10;
+}
+.nature-theme div.theme-preview canvas {
+  border: 1px solid red;
+}
 
 body {
   display: flex;
@@ -697,14 +770,19 @@ body {
   box-sizing: border-box;
 }
 
-div.theme-preview {
-  width: 80%;
-  height: 80%;
-  position: relative;
-  top: 20%;
-  left: 35%;
-  z-index: 10;
+.default-font {
+  font-family: Arial, Helvetica, sans-serif;
 }
-div.theme-preview canvas {
-  border: 1px solid red;
+
+.font1 {
+  font-family: "font1", Helvetica, sans-serif;
+}
+
+.font2 {
+  font-family: "font2", Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+
+.font3 {
+  font-family: "font3", Helvetica, sans-serif;
 }/*# sourceMappingURL=style.css.map */

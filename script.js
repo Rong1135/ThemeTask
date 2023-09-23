@@ -2,8 +2,10 @@ class TodoListManager {
   constructor() {
     this.initializeElements();
     this.setupEventListeners();
+    this.setupFonts();
     this.setupThemeButtons();
     this.nowTheme = "default-theme";
+    this.nowFont = "default-font";
   }
 
   initializeElements() {
@@ -27,13 +29,17 @@ class TodoListManager {
     this.settingList = this.getElement(".setting-list");
     this.subSettingList = this.getElement(".sub-setting-list");
     // 預覽主題
-    this.themeOptions = document.querySelectorAll(".sub-setting-list li");
+    this.themeOptions = document.querySelectorAll("#themeMenu li");
     this.themePreview = document.getElementById("themePreview");
 
+    this.themeMenu = this.getElement("#themeMenu");
     this.defaultThemeButton = this.getElement("#defaultThemeButton");
     this.lightThemeButton = this.getElement("#lightThemeButton");
     this.nightThemeButton = this.getElement("#nightThemeButton");
     this.natureThemeButton = this.getElement("#natureThemeButton");
+
+    this.fontChange = this.getElement("#fontChange");
+    this.fontChangeMenu = this.getElement("#fontChangeMenu");
   }
 
   getElement(selector) {
@@ -41,7 +47,26 @@ class TodoListManager {
   }
 
   setTheme(themeName) {
-    document.body.className = themeName;
+    const bodyClassList = document.body.classList;
+
+    bodyClassList.remove(
+      "default-theme",
+      "light-theme",
+      "night-theme",
+      "nature-theme"
+    );
+
+    bodyClassList.add(themeName);
+  }
+
+  setFont(font) {
+    const bodyClassList = document.body.classList;
+
+    // 移除所有字體類別
+    bodyClassList.remove("default-font", "font1", "font2", "font3");
+
+    // 添加新的字體類別
+    bodyClassList.add(font);
   }
 
   setupThemeButtons() {
@@ -57,6 +82,22 @@ class TodoListManager {
       button.addEventListener("click", () => {
         this.nowTheme = themeName;
         this.setTheme(this.nowTheme);
+      });
+    }
+  }
+
+  setupFonts() {
+    const fonts = {
+      defaultFont: "default-font",
+      font1: "font1",
+      font2: "font2",
+      font3: "font3",
+    };
+
+    for (const [liId, fontName] of Object.entries(fonts)) {
+      const font = this.getElement(`#${liId}`);
+      font.addEventListener("click", () => {
+        this.setFont(fontName);
       });
     }
   }
@@ -79,8 +120,11 @@ class TodoListManager {
 
     // 背景色切換
     this.toggleThemeButton.addEventListener("click", () =>
-      this.toggleSubSettingList()
+      this.toggleThemeMenu()
     );
+
+    // 字體選擇
+    this.fontChange.addEventListener("click", () => this.toggleFontChange());
   }
 
   openSidebar() {
@@ -141,8 +185,12 @@ class TodoListManager {
     });
   }
 
-  toggleSubSettingList() {
-    this.subSettingList.classList.toggle("show");
+  toggleThemeMenu() {
+    this.themeMenu.classList.toggle("show");
+  }
+
+  toggleFontChange() {
+    this.fontChangeMenu.classList.toggle("show");
   }
 
   // 在TodoListManager類中添加一個新方法用於捕獲網頁截圖

@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
-  <body class="default-theme">
+  <body class="default-theme default-font">
     <header>
       <button id="openSidebarButton" class="button-group">&gt;</button>
       <h1>ThemeTasker</h1>
@@ -40,12 +40,22 @@
       <ul class="setting-list">
         <!-- 背景色 -->
         <li>
-          <span id="toggleThemeButton">背景色切換</span>
-          <ul class="sub-setting-list">
+          <span class="selectorStyle" id="toggleThemeButton">背景色切換</span>
+          <ul class="sub-setting-list" id="themeMenu">
             <li id="defaultThemeButton">預設</li>
             <li id="lightThemeButton">亮色</li>
             <li id="nightThemeButton">夜間</li>
             <li id="natureThemeButton">自然</li>
+          </ul>
+        </li>
+        <!-- 字體切換 -->
+        <li>
+          <span class="selectorStyle" id="fontChange">字體切換</span>
+          <ul class="sub-setting-list" id="fontChangeMenu">
+            <li id="defaultFont">預設</li>
+            <li id="font1">清松手寫體</li>
+            <li id="font2">辰宇落雁體</li>
+            <li id="font3">Open Sans</li>
           </ul>
         </li>
       </ul>
