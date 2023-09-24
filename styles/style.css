@@ -144,6 +144,7 @@
   margin-top: 1.5rem;
   padding: 0.5rem;
   text-align: center;
+  list-style-type: none;
 }
 .default-theme aside .setting-list li {
   margin-bottom: 1.5rem;
@@ -326,6 +327,7 @@
   margin-top: 1.5rem;
   padding: 0.5rem;
   text-align: center;
+  list-style-type: none;
 }
 .light-theme aside .setting-list li {
   margin-bottom: 1.5rem;
@@ -519,6 +521,7 @@
   margin-top: 1.5rem;
   padding: 0.5rem;
   text-align: center;
+  list-style-type: none;
 }
 .night-theme aside .setting-list li {
   margin-bottom: 1.5rem;
@@ -708,6 +711,7 @@
   margin-top: 1.5rem;
   padding: 0.5rem;
   text-align: center;
+  list-style-type: none;
 }
 .nature-theme aside .setting-list li {
   margin-bottom: 1.5rem;
@@ -780,9 +784,20 @@ body {
 
 .font2 {
   font-family: "font2", Helvetica, sans-serif;
-  font-size: 1.5rem;
 }
 
 .font3 {
   font-family: "font3", Helvetica, sans-serif;
+}
+
+.default-font-size {
+  font-size: medium;
+}
+
+.small-font-size {
+  font-size: small;
+}
+
+.large-font-size {
+  font-size: larger;
 }/*# sourceMappingURL=style.css.map */

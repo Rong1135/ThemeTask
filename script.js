@@ -4,8 +4,10 @@ class TodoListManager {
     this.setupEventListeners();
     this.setupFonts();
     this.setupThemeButtons();
+    this.setupFontSizes();
     this.nowTheme = "default-theme";
     this.nowFont = "default-font";
+    this.nowFontSize = "default-font-size";
   }
 
   initializeElements() {
@@ -40,6 +42,9 @@ class TodoListManager {
 
     this.fontChange = this.getElement("#fontChange");
     this.fontChangeMenu = this.getElement("#fontChangeMenu");
+
+    this.fontSize = this.getElement("#fontSize");
+    this.fontSizeMenu = this.getElement("#fontSizeMenu");
   }
 
   getElement(selector) {
@@ -62,11 +67,21 @@ class TodoListManager {
   setFont(font) {
     const bodyClassList = document.body.classList;
 
-    // 移除所有字體類別
     bodyClassList.remove("default-font", "font1", "font2", "font3");
 
-    // 添加新的字體類別
     bodyClassList.add(font);
+  }
+
+  setFontSize(fontSize) {
+    const bodyClassList = document.body.classList;
+
+    bodyClassList.remove(
+      "default-font-size",
+      "small-font-size",
+      "large-font-size"
+    );
+
+    bodyClassList.add(fontSize);
   }
 
   setupThemeButtons() {
@@ -102,6 +117,21 @@ class TodoListManager {
     }
   }
 
+  setupFontSizes() {
+    const fontSizes = {
+      mid: "default-font-size",
+      small: "small-font-size",
+      large: "large-font-size",
+    };
+
+    for (const [liId, fontSizeName] of Object.entries(fontSizes)) {
+      const fontSize = this.getElement(`#${liId}`);
+      fontSize.addEventListener("click", () => {
+        this.setFontSize(fontSizeName);
+      });
+    }
+  }
+
   setupEventListeners() {
     // 開啟側邊欄事件
     this.openSidebarButton.addEventListener("click", () => this.openSidebar());
@@ -125,6 +155,9 @@ class TodoListManager {
 
     // 字體選擇
     this.fontChange.addEventListener("click", () => this.toggleFontChange());
+
+    // 字體大小
+    this.fontSize.addEventListener("click", () => this.toggleFontSize());
   }
 
   openSidebar() {
@@ -191,6 +224,10 @@ class TodoListManager {
 
   toggleFontChange() {
     this.fontChangeMenu.classList.toggle("show");
+  }
+
+  toggleFontSize() {
+    this.fontSizeMenu.classList.toggle("show");
   }
 
   // 在TodoListManager類中添加一個新方法用於捕獲網頁截圖

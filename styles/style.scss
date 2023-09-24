@@ -115,6 +115,7 @@
       margin-top: 1.5rem;
       padding: 0.5rem;
       text-align: center;
+      list-style-type: none;
 
       li {
         margin-bottom: 1.5rem;
@@ -418,8 +419,19 @@ body {
 }
 .font2 {
   font-family: "font2", Helvetica, sans-serif;
-  font-size: 1.5rem;
 }
 .font3 {
   font-family: "font3", Helvetica, sans-serif;
+}
+
+.default-font-size {
+  font-size: medium;
+}
+
+.small-font-size {
+  font-size: small;
+}
+
+.large-font-size {
+  font-size: larger;
 }
