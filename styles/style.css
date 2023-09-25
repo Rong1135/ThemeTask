@@ -791,7 +791,7 @@ body {
 }
 
 .default-font-size {
-  font-size: medium;
+  font-size: 1rem;
 }
 
 .small-font-size {
@@ -800,4 +800,16 @@ body {
 
 .large-font-size {
   font-size: larger;
+}
+
+.default-font-size2 {
+  font-size: 1.5rem;
+}
+
+.small-font-size2 {
+  font-size: 1.2rem;
+}
+
+.large-font-size2 {
+  font-size: 1.8rem;
 }/*# sourceMappingURL=style.css.map */

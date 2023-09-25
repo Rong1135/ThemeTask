@@ -1,16 +1,19 @@
 class TodoListManager {
   constructor() {
-    this.initializeElements();
-    this.setupEventListeners();
-    this.setupFonts();
-    this.setupThemeButtons();
-    this.setupFontSizes();
     this.nowTheme = "default-theme";
     this.nowFont = "default-font";
     this.nowFontSize = "default-font-size";
+    this.bodyClassList = document.body.classList;
+
+    this.initializeElements();
+    this.setupEventListeners();
+    this.setupThemeButtons();
+    this.setupFonts();
+    this.setupFontSizes();
   }
 
   initializeElements() {
+    // 基本元素
     this.main = this.getElement("main");
     this.header = this.getElement("header");
     this.aside = this.getElement("aside");
@@ -19,30 +22,32 @@ class TodoListManager {
     this.openSidebarButton = this.getElement("#openSidebarButton");
     this.closeSidebarButton = this.getElement("#closeSidebarButton");
 
-    // 待辦事項輸入區塊
+    // 待辦事項相關
     this.todoForm = this.getElement("#todoForm");
     this.inputText = this.getElement("#inputText");
     this.addItemButton = this.getElement("#addButton");
     this.todoContainer = this.getElement(".todolist-container");
     this.completedContainer = this.getElement(".todo-completed-container");
 
-    // 背景色切換
+    // 背景色切換相關
     this.toggleThemeButton = this.getElement("#toggleThemeButton");
     this.settingList = this.getElement(".setting-list");
     this.subSettingList = this.getElement(".sub-setting-list");
-    // 預覽主題
-    this.themeOptions = document.querySelectorAll("#themeMenu li");
-    this.themePreview = document.getElementById("themePreview");
-
     this.themeMenu = this.getElement("#themeMenu");
     this.defaultThemeButton = this.getElement("#defaultThemeButton");
     this.lightThemeButton = this.getElement("#lightThemeButton");
     this.nightThemeButton = this.getElement("#nightThemeButton");
     this.natureThemeButton = this.getElement("#natureThemeButton");
 
+    // 主題預覽相關
+    this.themeOptions = document.querySelectorAll("#themeMenu li");
+    this.themePreview = document.getElementById("themePreview");
+
+    // 字體切換相關
     this.fontChange = this.getElement("#fontChange");
     this.fontChangeMenu = this.getElement("#fontChangeMenu");
 
+    // 字體大小切換相關
     this.fontSize = this.getElement("#fontSize");
     this.fontSizeMenu = this.getElement("#fontSizeMenu");
   }
@@ -51,39 +56,45 @@ class TodoListManager {
     return document.querySelector(selector);
   }
 
+  // 設定 body 元素的 class
   setTheme(themeName) {
-    const bodyClassList = document.body.classList;
-
-    bodyClassList.remove(
+    this.bodyClassList.remove(
       "default-theme",
       "light-theme",
       "night-theme",
       "nature-theme"
     );
-
-    bodyClassList.add(themeName);
+    this.updateClassList(themeName);
   }
-
   setFont(font) {
-    const bodyClassList = document.body.classList;
+    this.bodyClassList.remove("default-font", "font1", "font2", "font3");
 
-    bodyClassList.remove("default-font", "font1", "font2", "font3");
-
-    bodyClassList.add(font);
+    this.updateClassList(font);
+    this.setFontSize(this.nowFontSize);
   }
-
   setFontSize(fontSize) {
-    const bodyClassList = document.body.classList;
-
-    bodyClassList.remove(
+    this.bodyClassList.remove(
       "default-font-size",
       "small-font-size",
-      "large-font-size"
+      "large-font-size",
+      "default-font-size2",
+      "small-font-size2",
+      "large-font-size2"
     );
 
-    bodyClassList.add(fontSize);
+    if (this.nowFont == "font2") {
+      if (fontSize === "default-font-size") fontSize = "default-font-size2";
+      else if (fontSize === "small-font-size") fontSize = "small-font-size2";
+      else if (fontSize === "large-font-size") fontSize = "large-font-size2";
+    }
+
+    this.updateClassList(fontSize);
+  }
+  updateClassList(className) {
+    this.bodyClassList.add(className);
   }
 
+  // 綁定點擊事件
   setupThemeButtons() {
     const themes = {
       defaultThemeButton: "default-theme",
@@ -100,7 +111,6 @@ class TodoListManager {
       });
     }
   }
-
   setupFonts() {
     const fonts = {
       defaultFont: "default-font",
@@ -112,11 +122,11 @@ class TodoListManager {
     for (const [liId, fontName] of Object.entries(fonts)) {
       const font = this.getElement(`#${liId}`);
       font.addEventListener("click", () => {
+        this.nowFont = fontName;
         this.setFont(fontName);
       });
     }
   }
-
   setupFontSizes() {
     const fontSizes = {
       mid: "default-font-size",
@@ -127,6 +137,7 @@ class TodoListManager {
     for (const [liId, fontSizeName] of Object.entries(fontSizes)) {
       const fontSize = this.getElement(`#${liId}`);
       fontSize.addEventListener("click", () => {
+        this.nowFontSize = fontSizeName;
         this.setFontSize(fontSizeName);
       });
     }
@@ -150,14 +161,18 @@ class TodoListManager {
 
     // 背景色切換
     this.toggleThemeButton.addEventListener("click", () =>
-      this.toggleThemeMenu()
+      this.showToggleElement(themeMenu)
     );
 
     // 字體選擇
-    this.fontChange.addEventListener("click", () => this.toggleFontChange());
+    this.fontChange.addEventListener("click", () =>
+      this.showToggleElement(fontChangeMenu)
+    );
 
     // 字體大小
-    this.fontSize.addEventListener("click", () => this.toggleFontSize());
+    this.fontSize.addEventListener("click", () =>
+      this.showToggleElement(fontSizeMenu)
+    );
   }
 
   openSidebar() {
@@ -218,16 +233,9 @@ class TodoListManager {
     });
   }
 
-  toggleThemeMenu() {
-    this.themeMenu.classList.toggle("show");
-  }
-
-  toggleFontChange() {
-    this.fontChangeMenu.classList.toggle("show");
-  }
-
-  toggleFontSize() {
-    this.fontSizeMenu.classList.toggle("show");
+  // 顯示 <aside> 中的子清單
+  showToggleElement(elementName) {
+    elementName.classList.toggle("show");
   }
 
   // 在TodoListManager類中添加一個新方法用於捕獲網頁截圖
