@@ -10,6 +10,8 @@ class TodoListManager {
     this.setupThemeButtons();
     this.setupFonts();
     this.setupFontSizes();
+
+    this.setSetting();
   }
 
   initializeElements() {
@@ -50,10 +52,28 @@ class TodoListManager {
     // 字體大小切換相關
     this.fontSize = this.getElement("#fontSize");
     this.fontSizeMenu = this.getElement("#fontSizeMenu");
+
+    // 本地儲存
+    this.SaveSettingButton = this.getElement("#SaveSettingButton");
   }
 
   getElement(selector) {
     return document.querySelector(selector);
+  }
+
+  setSetting() {
+    let nowThemeJSON = localStorage.getItem("theme");
+    let nowFontJSON = localStorage.getItem("font");
+    let nowFontSizeJSON = localStorage.getItem("fontSize");
+
+    // 將字符串轉回 JavaScript
+    this.nowTheme = JSON.parse(nowThemeJSON);
+    this.nowFont = JSON.parse(nowFontJSON);
+    this.nowFontSize = JSON.parse(nowFontSizeJSON);
+
+    this.setTheme(this.nowTheme);
+    this.setFont(this.nowFont);
+    this.setFontSize(this.nowFontSize);
   }
 
   // 設定 body 元素的 class
@@ -173,6 +193,9 @@ class TodoListManager {
     this.fontSize.addEventListener("click", () =>
       this.showToggleElement(fontSizeMenu)
     );
+
+    // 本地儲存
+    this.SaveSettingButton.addEventListener("click", () => this.saveSetting());
   }
 
   openSidebar() {
@@ -236,6 +259,22 @@ class TodoListManager {
   // 顯示 <aside> 中的子清單
   showToggleElement(elementName) {
     elementName.classList.toggle("show");
+  }
+
+  saveSetting() {
+    // 將變數轉換成 JSON 字符串
+    let themeJSON = JSON.stringify(this.nowTheme);
+    let fontJSON = JSON.stringify(this.nowFont);
+    let fontSizeJSON = JSON.stringify(this.nowFontSize);
+
+    console.log(themeJSON);
+    console.log(fontJSON);
+    console.log(fontSizeJSON);
+
+    // 將資料存儲在 localStorage 中
+    localStorage.setItem("theme", themeJSON);
+    localStorage.setItem("font", fontJSON);
+    localStorage.setItem("fontSize", fontSizeJSON);
   }
 
   // 在TodoListManager類中添加一個新方法用於捕獲網頁截圖
