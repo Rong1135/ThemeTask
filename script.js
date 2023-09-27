@@ -55,6 +55,9 @@ class TodoListManager {
 
     // 本地儲存
     this.SaveSettingButton = this.getElement("#SaveSettingButton");
+
+    // 清除設定
+    this.ClearSettingButton = this.getElement("#ClearSettingButton");
   }
 
   getElement(selector) {
@@ -70,6 +73,18 @@ class TodoListManager {
     this.nowTheme = JSON.parse(nowThemeJSON);
     this.nowFont = JSON.parse(nowFontJSON);
     this.nowFontSize = JSON.parse(nowFontSizeJSON);
+
+    this.setTheme(this.nowTheme);
+    this.setFont(this.nowFont);
+    this.setFontSize(this.nowFontSize);
+  }
+
+  resetSetting() {
+    this.nowTheme = "default-theme";
+    this.nowFont = "default-font";
+    this.nowFontSize = "default-font-size";
+
+    this.saveSetting();
 
     this.setTheme(this.nowTheme);
     this.setFont(this.nowFont);
@@ -196,6 +211,13 @@ class TodoListManager {
 
     // 本地儲存
     this.SaveSettingButton.addEventListener("click", () => this.saveSetting());
+
+    // 清除設定
+    this.ClearSettingButton.addEventListener("click", () => {
+      const isConfirmed = confirm("您確定要清除設定嗎?");
+
+      if (isConfirmed) this.resetSetting();
+    });
   }
 
   openSidebar() {
@@ -266,10 +288,6 @@ class TodoListManager {
     let themeJSON = JSON.stringify(this.nowTheme);
     let fontJSON = JSON.stringify(this.nowFont);
     let fontSizeJSON = JSON.stringify(this.nowFontSize);
-
-    console.log(themeJSON);
-    console.log(fontJSON);
-    console.log(fontSizeJSON);
 
     // 將資料存儲在 localStorage 中
     localStorage.setItem("theme", themeJSON);
