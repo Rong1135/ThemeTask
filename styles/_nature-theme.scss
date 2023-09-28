@@ -1,0 +1,62 @@
+.nature-theme {
+  background-color: #cfff8d;
+
+  .button-group {
+    background-color: #749f82;
+    color: #cfff8d;
+  }
+
+  header {
+    background-color: #425f57;
+    color: #a8e890;
+    border-bottom: 1px solid #749f82;
+
+    #openSidebarButton {
+      background-color: #425f57;
+      color: #a8e890;
+    }
+  }
+
+  main {
+    .input-container {
+      #todoForm {
+        input#inputText[type="text"] {
+          border-bottom: 1px solid #749f82;
+          background-color: #cfff8d;
+        }
+      }
+    }
+
+    .todolist-container,
+    .todo-completed-container {
+      .todolist-item {
+        border: 3px solid #a8e890;
+      }
+    }
+
+    .todo-completed-container {
+      h3 {
+        color: #749f82;
+      }
+    }
+  }
+
+  aside {
+    background-color: #749f82;
+    color: white;
+
+    #closeSidebarButton {
+      background-color: inherit;
+      color: inherit;
+    }
+
+    .setting-list li .selectorStyle,
+    .sub-setting-list li {
+      &:hover {
+        background-color: #96d3ae;
+      }
+    }
+  }
+
+  @include common-styles;
+}

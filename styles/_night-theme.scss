@@ -1,0 +1,66 @@
+.night-theme {
+  background-color: black;
+
+  .button-group {
+    background-color: white;
+    color: black;
+  }
+
+  header {
+    background-color: black;
+    color: white;
+    border-bottom: 1px solid white;
+
+    #openSidebarButton {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  main {
+    .input-container {
+      #todoForm {
+        input#inputText[type="text"] {
+          border-bottom: 1px solid white;
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+
+    .todolist-container,
+    .todo-completed-container {
+      .todolist-item {
+        border: 1px solid white;
+        background-color: black;
+        color: white;
+      }
+    }
+
+    .todo-completed-container {
+      h3 {
+        color: white;
+      }
+    }
+  }
+
+  aside {
+    background-color: rgb(39, 39, 39);
+    color: white;
+    border-right: 1px solid white;
+
+    #closeSidebarButton {
+      background-color: inherit;
+      color: inherit;
+    }
+
+    .setting-list li .selectorStyle,
+    .sub-setting-list li {
+      &:hover {
+        background-color: rgb(132, 130, 130);
+      }
+    }
+  }
+
+  @include common-styles;
+}

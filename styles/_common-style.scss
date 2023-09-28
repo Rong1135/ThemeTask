@@ -1,0 +1,159 @@
+@mixin common-styles {
+  button {
+    border: none;
+    cursor: pointer;
+  }
+  header {
+    width: 100%;
+    padding: 1rem 0;
+    position: relative;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    #openSidebarButton {
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      font-size: large;
+    }
+  }
+  main {
+    flex-grow: 1;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+
+    .input-container {
+      width: 85%;
+      margin: 0 auto;
+      #todoForm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.5rem;
+        padding: 1rem;
+        input[type="text"] {
+          flex-grow: 1;
+          padding: 0.5rem;
+          border: none;
+        }
+        #addButton {
+          margin-left: 0.5rem;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+
+    .todolist-container,
+    .todo-completed-container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0.5rem 0;
+      .todolist-item {
+        width: 80%;
+        display: flex;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        input[type="checkbox"] {
+          margin: 0 0.5rem;
+        }
+        .text-area {
+          flex-grow: 1;
+        }
+        button.delete-button {
+          margin: 0 0.5rem;
+          padding: 0.2rem 0.5rem;
+        }
+      }
+    }
+
+    .todo-completed-container {
+      display: none;
+
+      h3 {
+        width: 80%;
+        margin-bottom: 0.5rem;
+        text-align: left;
+      }
+    }
+  }
+  aside {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: all 0.5s ease-in-out;
+
+    #closeSidebarButton {
+      position: relative;
+      top: 4%;
+      left: 80%;
+      border: none;
+      font-size: large;
+      cursor: pointer;
+    }
+
+    .setting-list {
+      margin-top: 1.5rem;
+      padding: 0.5rem;
+      text-align: center;
+      list-style-type: none;
+
+      li {
+        margin-bottom: 1.5rem;
+
+        span.selectorStyle {
+          width: 100%;
+          margin: auto;
+          margin-bottom: 1rem;
+          padding: 0.5rem;
+          border-radius: 5px;
+          list-style-type: none;
+        }
+
+        .sub-setting-list {
+          display: none;
+          width: 100%;
+          margin: 0.5rem 0;
+          list-style-type: none;
+          text-align: center;
+
+          li {
+            width: 80%;
+            margin: 0.3rem 0;
+            padding: 0.2rem 0;
+          }
+        }
+        .sub-setting-list.show {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+  main.move-right,
+  header.move-right {
+    margin-left: 35%;
+    width: calc(100% - 35%);
+  }
+  aside.move-left {
+    width: 35%;
+  }
+  div.theme-preview {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    top: 20%;
+    left: 35%;
+    z-index: 10;
+
+    canvas {
+      border: 1px solid red;
+    }
+  }
+}

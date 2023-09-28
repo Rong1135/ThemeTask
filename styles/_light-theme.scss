@@ -1,0 +1,48 @@
+.light-theme {
+  background-color: #f2ead3;
+
+  .button-group,
+  header {
+    background-color: #3f2305;
+    color: #f5f5f5;
+  }
+
+  main {
+    .input-container #todoForm input#inputText[type="text"] {
+      border-bottom: 1px solid #3f2305;
+      background-color: #f2ead3;
+    }
+
+    .todolist-container,
+    .todo-completed-container {
+      .todolist-item {
+        border: 1px solid #ccc;
+        background-color: white;
+      }
+    }
+
+    .todo-completed-container {
+      h3 {
+        color: #3f2305;
+      }
+    }
+  }
+
+  aside {
+    background-color: #dfd7bf;
+    color: rgb(48, 47, 47);
+
+    #closeSidebarButton {
+      background-color: inherit;
+      color: inherit;
+    }
+
+    .setting-list li .selectorStyle,
+    .sub-setting-list li {
+      &:hover {
+        background-color: #c8bb95;
+      }
+    }
+  }
+  @include common-styles;
+}

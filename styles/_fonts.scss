@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Font1";
+  src: url(../fonts/清松手寫體1.ttf);
+}
+@font-face {
+  font-family: "Font2";
+  src: url(../fonts/ChenYuluoyan-Thin.ttf);
+}
+@font-face {
+  font-family: "Font3";
+  src: url(../fonts/OpenSans-MediumItalic.ttf);
+}
+
+.default-font {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.font1 {
+  font-family: "font1", Helvetica, sans-serif;
+}
+.font2 {
+  font-family: "font2", Helvetica, sans-serif;
+}
+.font3 {
+  font-family: "font3", Helvetica, sans-serif;
+}
+
+// 字型大小
+.default-font-size {
+  font-size: 1rem;
+}
+
+.small-font-size {
+  font-size: small;
+}
+
+.large-font-size {
+  font-size: larger;
+}
+
+.default-font-size2 {
+  font-size: 1.5rem;
+}
+
+.small-font-size2 {
+  font-size: 1.2rem;
+}
+
+.large-font-size2 {
+  font-size: 1.8rem;
+}

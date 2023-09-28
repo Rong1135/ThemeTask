@@ -1,8 +1,5 @@
 class TodoListManager {
   constructor() {
-    this.nowTheme = "default-theme";
-    this.nowFont = "default-font";
-    this.nowFontSize = "default-font-size";
     this.bodyClassList = document.body.classList;
 
     this.initializeElements();
@@ -15,75 +12,56 @@ class TodoListManager {
   }
 
   initializeElements() {
-    // 基本元素
-    this.main = this.getElement("main");
-    this.header = this.getElement("header");
-    this.aside = this.getElement("aside");
-
-    // 側邊欄按鈕
-    this.openSidebarButton = this.getElement("#openSidebarButton");
-    this.closeSidebarButton = this.getElement("#closeSidebarButton");
-
-    // 待辦事項相關
-    this.todoForm = this.getElement("#todoForm");
-    this.inputText = this.getElement("#inputText");
-    this.addItemButton = this.getElement("#addButton");
-    this.todoContainer = this.getElement(".todolist-container");
-    this.completedContainer = this.getElement(".todo-completed-container");
-
-    // 背景色切換相關
-    this.toggleThemeButton = this.getElement("#toggleThemeButton");
-    this.settingList = this.getElement(".setting-list");
-    this.subSettingList = this.getElement(".sub-setting-list");
-    this.themeMenu = this.getElement("#themeMenu");
-    this.defaultThemeButton = this.getElement("#defaultThemeButton");
-    this.lightThemeButton = this.getElement("#lightThemeButton");
-    this.nightThemeButton = this.getElement("#nightThemeButton");
-    this.natureThemeButton = this.getElement("#natureThemeButton");
-
-    // 主題預覽相關
-    this.themeOptions = document.querySelectorAll("#themeMenu li");
-    this.themePreview = document.getElementById("themePreview");
-
-    // 字體切換相關
-    this.fontChange = this.getElement("#fontChange");
-    this.fontChangeMenu = this.getElement("#fontChangeMenu");
-
-    // 字體大小切換相關
-    this.fontSize = this.getElement("#fontSize");
-    this.fontSizeMenu = this.getElement("#fontSizeMenu");
-
-    // 本地儲存
-    this.SaveSettingButton = this.getElement("#SaveSettingButton");
-
-    // 清除設定
-    this.ClearSettingButton = this.getElement("#ClearSettingButton");
+    // main Elements
+    this.main = document.querySelector("main");
+    this.header = document.querySelector("header");
+    this.aside = document.querySelector("aside");
+    // aside Elements
+    this.openSidebarButton = document.querySelector("#openSidebarButton");
+    this.closeSidebarButton = document.querySelector("#closeSidebarButton");
+    // To Do Elements
+    this.todoForm = document.querySelector("#todoForm");
+    this.inputText = document.querySelector("#inputText");
+    this.addItemButton = document.querySelector("#addButton");
+    this.todoContainer = document.querySelector(".todolist-container");
+    this.completedContainer = document.querySelector(
+      ".todo-completed-container"
+    );
+    // setting Elements
+    this.toggleThemeButton = document.querySelector("#toggleThemeButton");
+    this.fontChange = document.querySelector("#fontChange");
+    this.fontSize = document.querySelector("#fontSize");
+    this.SaveSettingButton = document.querySelector("#SaveSettingButton");
+    this.ClearSettingButton = document.querySelector("#ClearSettingButton");
+    // 主題預覽
+    this.themePreview = document.querySelector("#themePreview");
   }
 
-  getElement(selector) {
-    return document.querySelector(selector);
-  }
-
+  // 儲存設定
   setSetting() {
-    let nowThemeJSON = localStorage.getItem("theme");
-    let nowFontJSON = localStorage.getItem("font");
-    let nowFontSizeJSON = localStorage.getItem("fontSize");
+    // 獲取本地存取值
+    const nowThemeJSON = localStorage.getItem("theme");
+    const nowFontJSON = localStorage.getItem("font");
+    const nowFontSizeJSON = localStorage.getItem("fontSize");
 
-    // 將字符串轉回 JavaScript
-    this.nowTheme = JSON.parse(nowThemeJSON);
-    this.nowFont = JSON.parse(nowFontJSON);
-    this.nowFontSize = JSON.parse(nowFontSizeJSON);
+    // 設置 "當前設定值"，從本地儲存取出或是直接設定為 default 值
+    this.nowTheme = JSON.parse(nowThemeJSON) || "default-theme";
+    this.nowFont = JSON.parse(nowFontJSON) || "default-font";
+    this.nowFontSize = JSON.parse(nowFontSizeJSON) || "default-font-size";
 
     this.setTheme(this.nowTheme);
     this.setFont(this.nowFont);
     this.setFontSize(this.nowFontSize);
   }
 
+  // 清除設定
   resetSetting() {
+    // 重置設定值
     this.nowTheme = "default-theme";
     this.nowFont = "default-font";
     this.nowFontSize = "default-font-size";
 
+    // 保存已重置的設定值
     this.saveSetting();
 
     this.setTheme(this.nowTheme);
@@ -91,7 +69,7 @@ class TodoListManager {
     this.setFontSize(this.nowFontSize);
   }
 
-  // 設定 body 元素的 class
+  // 設定主題背景色
   setTheme(themeName) {
     this.bodyClassList.remove(
       "default-theme",
@@ -101,12 +79,14 @@ class TodoListManager {
     );
     this.updateClassList(themeName);
   }
+  // 設定選擇字體
   setFont(font) {
     this.bodyClassList.remove("default-font", "font1", "font2", "font3");
-
     this.updateClassList(font);
+    // 更新字體後也要更新字型大小
     this.setFontSize(this.nowFontSize);
   }
+  // 設定字型大小
   setFontSize(fontSize) {
     this.bodyClassList.remove(
       "default-font-size",
@@ -117,6 +97,7 @@ class TodoListManager {
       "large-font-size2"
     );
 
+    // 如果字體為"辰宇落雁體"，要重設字型大小
     if (this.nowFont == "font2") {
       if (fontSize === "default-font-size") fontSize = "default-font-size2";
       else if (fontSize === "small-font-size") fontSize = "small-font-size2";
@@ -125,11 +106,12 @@ class TodoListManager {
 
     this.updateClassList(fontSize);
   }
+  // 更新 <body> 類別
   updateClassList(className) {
     this.bodyClassList.add(className);
   }
 
-  // 綁定點擊事件
+  // 為"主題背景色切換"選項綁定點擊事件
   setupThemeButtons() {
     const themes = {
       defaultThemeButton: "default-theme",
@@ -139,13 +121,14 @@ class TodoListManager {
     };
 
     for (const [buttonId, themeName] of Object.entries(themes)) {
-      const button = this.getElement(`#${buttonId}`);
+      const button = document.querySelector(`#${buttonId}`);
       button.addEventListener("click", () => {
         this.nowTheme = themeName;
         this.setTheme(this.nowTheme);
       });
     }
   }
+  // 為"字體切換"選項綁定點擊事件
   setupFonts() {
     const fonts = {
       defaultFont: "default-font",
@@ -155,13 +138,14 @@ class TodoListManager {
     };
 
     for (const [liId, fontName] of Object.entries(fonts)) {
-      const font = this.getElement(`#${liId}`);
+      const font = document.querySelector(`#${liId}`);
       font.addEventListener("click", () => {
         this.nowFont = fontName;
         this.setFont(fontName);
       });
     }
   }
+  // 為"字型大小切換"選項綁定點擊事件
   setupFontSizes() {
     const fontSizes = {
       mid: "default-font-size",
@@ -170,7 +154,7 @@ class TodoListManager {
     };
 
     for (const [liId, fontSizeName] of Object.entries(fontSizes)) {
-      const fontSize = this.getElement(`#${liId}`);
+      const fontSize = document.querySelector(`#${liId}`);
       fontSize.addEventListener("click", () => {
         this.nowFontSize = fontSizeName;
         this.setFontSize(fontSizeName);
@@ -178,60 +162,48 @@ class TodoListManager {
     }
   }
 
+  // 設定事件監聽器
   setupEventListeners() {
-    // 開啟側邊欄事件
+    // <aside> 的點擊事件
     this.openSidebarButton.addEventListener("click", () => this.openSidebar());
-
-    // 關閉側邊欄事件
     this.closeSidebarButton.addEventListener("click", () =>
       this.closeSidebar()
     );
-
-    // 待辦事項輸入表單事件
+    // 表單送出事件
     this.todoForm.addEventListener("submit", (e) =>
       this.handleTodoFormSubmit(e)
     );
-
-    this.themeOptions.forEach((option) => this.setupThemeOptionEvents(option));
-
-    // 背景色切換
+    // 主題預覽設定
+    this.setupThemeOptionEvents();
+    // 開啟設定 主題 & 字體相關 的子選單
     this.toggleThemeButton.addEventListener("click", () =>
-      this.showToggleElement(themeMenu)
+      this.showToggleElement("themeMenu")
     );
-
-    // 字體選擇
     this.fontChange.addEventListener("click", () =>
-      this.showToggleElement(fontChangeMenu)
+      this.showToggleElement("fontChangeMenu")
     );
-
-    // 字體大小
     this.fontSize.addEventListener("click", () =>
-      this.showToggleElement(fontSizeMenu)
+      this.showToggleElement("fontSizeMenu")
     );
-
-    // 本地儲存
+    // 儲存 & 清除 設定選項
     this.SaveSettingButton.addEventListener("click", () => this.saveSetting());
-
-    // 清除設定
     this.ClearSettingButton.addEventListener("click", () => {
       const isConfirmed = confirm("您確定要清除設定嗎?");
-
       if (isConfirmed) this.resetSetting();
     });
   }
 
+  // 開啟/關閉 <aside>
   openSidebar() {
     this.header.classList.add("move-right");
     this.main.classList.add("move-right");
     this.aside.classList.add("move-left");
     this.openSidebarButton.style.display = "none";
   }
-
   closeSidebar() {
     this.header.classList.remove("move-right");
     this.main.classList.remove("move-right");
     this.aside.classList.remove("move-left");
-
     this.aside.addEventListener(
       "transitionend",
       () => {
@@ -241,9 +213,9 @@ class TodoListManager {
     );
   }
 
+  // 避免 To Do 提交空值
   handleTodoFormSubmit(e) {
-    e.preventDefault(); // 防止頁面重新刷新
-
+    e.preventDefault();
     if (this.inputText.value === "") {
       alert("請輸入待辦事項!");
     } else {
@@ -252,64 +224,67 @@ class TodoListManager {
     }
   }
 
-  setupThemeOptionEvents(option) {
-    option.addEventListener("mouseover", () => {
-      let themeName = this.nowTheme;
+  // 主題預覽：當游標移到選項上時，出現預覽畫面
+  setupThemeOptionEvents() {
+    const themeOptions = document.querySelectorAll("#themeMenu li");
 
-      if (option.id === "defaultThemeButton") {
-        themeName = "default-theme";
-      } else if (option.id === "lightThemeButton") {
-        themeName = "light-theme";
-      } else if (option.id === "nightThemeButton") {
-        themeName = "night-theme";
-      } else if (option.id === "natureThemeButton") {
-        themeName = "nature-theme";
-      }
-      this.setTheme(themeName);
-      // 調用捕獲截圖函數
-      this.captureWebpageScreenshot();
+    themeOptions.forEach((option) => {
+      option.addEventListener("mouseover", () => {
+        let themeName = this.nowTheme;
+        if (option.id === "defaultThemeButton") {
+          themeName = "default-theme";
+        } else if (option.id === "lightThemeButton") {
+          themeName = "light-theme";
+        } else if (option.id === "nightThemeButton") {
+          themeName = "night-theme";
+        } else if (option.id === "natureThemeButton") {
+          themeName = "nature-theme";
+        }
+        // 將網頁主題變成游標所指主題
+        this.setTheme(themeName);
+        // 用以下方法捕捉 HTML 畫面
+        this.captureWebpageScreenshot();
+        // 顯示預覽畫面
+        this.themePreview.style.display = "block";
+        // 恢復原有主題設定
+        this.setTheme(this.nowTheme);
+      });
 
-      this.themePreview.style.display = "block";
-      this.setTheme(this.nowTheme);
-    });
-
-    option.addEventListener("mouseout", () => {
-      this.themePreview.style.display = "none";
+      // 當游標移開時，取消顯示預覽畫面
+      option.addEventListener("mouseout", () => {
+        this.themePreview.style.display = "none";
+      });
     });
   }
 
-  // 顯示 <aside> 中的子清單
+  // 顯示設定子選項
   showToggleElement(elementName) {
-    elementName.classList.toggle("show");
+    const element = document.querySelector(`#${elementName}`);
+    element.classList.toggle("show");
   }
 
+  // 將主題設定儲存到本地存儲
   saveSetting() {
-    // 將變數轉換成 JSON 字符串
-    let themeJSON = JSON.stringify(this.nowTheme);
-    let fontJSON = JSON.stringify(this.nowFont);
-    let fontSizeJSON = JSON.stringify(this.nowFontSize);
-
-    // 將資料存儲在 localStorage 中
+    const themeJSON = JSON.stringify(this.nowTheme);
+    const fontJSON = JSON.stringify(this.nowFont);
+    const fontSizeJSON = JSON.stringify(this.nowFontSize);
     localStorage.setItem("theme", themeJSON);
     localStorage.setItem("font", fontJSON);
     localStorage.setItem("fontSize", fontSizeJSON);
   }
 
-  // 在TodoListManager類中添加一個新方法用於捕獲網頁截圖
+  // 捕捉網頁畫面
   captureWebpageScreenshot() {
-    const themePreview = this.getElement("#themePreview");
-
-    // 使用HTML2Canvas捕獲整個網頁
+    const themePreview = document.querySelector("#themePreview");
     html2canvas(document.body).then((canvas) => {
       themePreview.innerHTML = "";
       canvas.style.width = "60%";
       canvas.style.height = "60%";
-
-      // 將捕獲的圖像添加到預覽框中
       themePreview.appendChild(canvas);
     });
   }
 
+  // 若是有勾選的 To Do 項目，就顯示已完成區塊
   hideCompletedContainer() {
     if (
       !this.completedContainer.querySelector("input[type=checkbox]:checked")
@@ -318,7 +293,7 @@ class TodoListManager {
     }
   }
 
-  // 創建待辦事項項目
+  // 新增 To Do 項目至 <section class="todolist-container"> 中
   createTodoItem(inputValue) {
     const todoItemDiv = document.createElement("div");
     todoItemDiv.classList.add("todolist-item");
@@ -337,12 +312,9 @@ class TodoListManager {
     deleteButton.classList.add("button-group");
     deleteButton.textContent = "\u00D7";
 
-    // 刪除項目事件
     deleteButton.addEventListener("click", () =>
       this.handleDeleteButtonClick(todoItemDiv)
     );
-
-    // 勾選checkbox時，更改`<p>`標籤的文字樣式
     checkboxInput.addEventListener("change", () =>
       this.handleCheckboxChange(checkboxInput, todoItemDiv)
     );
@@ -354,28 +326,27 @@ class TodoListManager {
     this.todoContainer.appendChild(todoItemDiv);
   }
 
+  // 刪除項目按鈕的方法，用 parentContainer 刪除項目，並檢查 completedContainer 內是否還有其他項目
   handleDeleteButtonClick(todoItemDiv) {
     const parentContainer = todoItemDiv.closest(
       ".todolist-container, .todo-completed-container"
     );
-
     if (parentContainer) {
       parentContainer.removeChild(todoItemDiv);
     }
-
     this.hideCompletedContainer();
   }
+
+  // checkbox 勾選後操作
   handleCheckboxChange(checkboxInput, todoItemDiv) {
     if (checkboxInput.checked) {
       todoItemDiv.querySelector(".text-area").style.textDecoration =
         "line-through";
-      // 移動項目
       this.completedContainer.appendChild(todoItemDiv);
       this.completedContainer.style.display = "flex";
     } else {
       todoItemDiv.querySelector(".text-area").style.textDecoration = "none";
       this.todoContainer.appendChild(todoItemDiv);
-
       this.hideCompletedContainer();
     }
   }
