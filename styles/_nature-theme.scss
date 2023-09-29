@@ -50,10 +50,21 @@
       color: inherit;
     }
 
-    .setting-list li .selectorStyle,
-    .sub-setting-list li {
-      &:hover {
-        background-color: #96d3ae;
+    ul.setting-list li {
+      span.selectorStyle {
+        &:hover {
+          background-color: #96d3ae;
+        }
+      }
+      ul.sub-setting-list {
+        li {
+          &:hover {
+            background-color: #96d3ae;
+          }
+        }
+        li.selected {
+          color: #66f49f;
+        }
       }
     }
   }

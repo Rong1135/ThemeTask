@@ -11,6 +11,46 @@
   font-family: "Font3";
   src: url(../fonts/OpenSans-MediumItalic.ttf);
 }
+.default-font {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.font1 {
+  font-family: "font1", Helvetica, sans-serif;
+}
+
+.font2 {
+  font-family: "font2", Helvetica, sans-serif;
+}
+
+.font3 {
+  font-family: "font3", Helvetica, sans-serif;
+}
+
+.default-font-size {
+  font-size: 1rem;
+}
+
+.small-font-size {
+  font-size: small;
+}
+
+.large-font-size {
+  font-size: larger;
+}
+
+.default-font-size2 {
+  font-size: 1.5rem;
+}
+
+.small-font-size2 {
+  font-size: 1.2rem;
+}
+
+.large-font-size2 {
+  font-size: 1.8rem;
+}
+
 .default-theme {
   background-color: #f4f4f4;
 }
@@ -39,9 +79,14 @@
   background-color: inherit;
   color: inherit;
 }
-.default-theme aside ul.setting-list li span.selectorStyle:hover,
-.default-theme aside .sub-setting-list li:hover {
+.default-theme aside ul.setting-list li span.selectorStyle:hover {
   background-color: #969393;
+}
+.default-theme aside ul.setting-list li ul.sub-setting-list li:hover {
+  background-color: #969393;
+}
+.default-theme aside ul.setting-list li ul.sub-setting-list li.selected {
+  color: #93abec;
 }
 .default-theme button {
   border: none;
@@ -52,7 +97,6 @@
   padding: 1rem 0;
   position: relative;
   text-align: center;
-  transition: all 0.5s ease-in-out;
 }
 .default-theme header #openSidebarButton {
   position: absolute;
@@ -63,7 +107,6 @@
 .default-theme main {
   flex-grow: 1;
   width: 100%;
-  transition: all 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
 }
@@ -130,7 +173,6 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: all 0.5s ease-in-out;
 }
 .default-theme aside #closeSidebarButton {
   position: relative;
@@ -222,9 +264,14 @@
   background-color: inherit;
   color: inherit;
 }
-.light-theme aside .setting-list li .selectorStyle:hover,
-.light-theme aside .sub-setting-list li:hover {
+.light-theme aside ul.setting-list li span.selectorStyle:hover {
   background-color: #c8bb95;
+}
+.light-theme aside ul.setting-list li ul.sub-setting-list li:hover {
+  background-color: #c8bb95;
+}
+.light-theme aside ul.setting-list li ul.sub-setting-list li.selected {
+  color: #9d7e22;
 }
 .light-theme button {
   border: none;
@@ -235,7 +282,6 @@
   padding: 1rem 0;
   position: relative;
   text-align: center;
-  transition: all 0.5s ease-in-out;
 }
 .light-theme header #openSidebarButton {
   position: absolute;
@@ -246,7 +292,6 @@
 .light-theme main {
   flex-grow: 1;
   width: 100%;
-  transition: all 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
 }
@@ -313,7 +358,6 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: all 0.5s ease-in-out;
 }
 .light-theme aside #closeSidebarButton {
   position: relative;
@@ -416,9 +460,14 @@
   background-color: inherit;
   color: inherit;
 }
-.night-theme aside .setting-list li .selectorStyle:hover,
-.night-theme aside .sub-setting-list li:hover {
+.night-theme aside ul.setting-list li span.selectorStyle:hover {
   background-color: rgb(132, 130, 130);
+}
+.night-theme aside ul.setting-list li ul.sub-setting-list li:hover {
+  background-color: rgb(132, 130, 130);
+}
+.night-theme aside ul.setting-list li ul.sub-setting-list li.selected {
+  color: rgb(238, 182, 182);
 }
 .night-theme button {
   border: none;
@@ -429,7 +478,6 @@
   padding: 1rem 0;
   position: relative;
   text-align: center;
-  transition: all 0.5s ease-in-out;
 }
 .night-theme header #openSidebarButton {
   position: absolute;
@@ -440,7 +488,6 @@
 .night-theme main {
   flex-grow: 1;
   width: 100%;
-  transition: all 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
 }
@@ -507,7 +554,6 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: all 0.5s ease-in-out;
 }
 .night-theme aside #closeSidebarButton {
   position: relative;
@@ -606,9 +652,14 @@
   background-color: inherit;
   color: inherit;
 }
-.nature-theme aside .setting-list li .selectorStyle:hover,
-.nature-theme aside .sub-setting-list li:hover {
+.nature-theme aside ul.setting-list li span.selectorStyle:hover {
   background-color: #96d3ae;
+}
+.nature-theme aside ul.setting-list li ul.sub-setting-list li:hover {
+  background-color: #96d3ae;
+}
+.nature-theme aside ul.setting-list li ul.sub-setting-list li.selected {
+  color: #66f49f;
 }
 .nature-theme button {
   border: none;
@@ -619,7 +670,6 @@
   padding: 1rem 0;
   position: relative;
   text-align: center;
-  transition: all 0.5s ease-in-out;
 }
 .nature-theme header #openSidebarButton {
   position: absolute;
@@ -630,7 +680,6 @@
 .nature-theme main {
   flex-grow: 1;
   width: 100%;
-  transition: all 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
 }
@@ -697,7 +746,6 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: all 0.5s ease-in-out;
 }
 .nature-theme aside #closeSidebarButton {
   position: relative;
@@ -766,50 +814,11 @@ body {
   flex-direction: column;
   height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
+  transition: all 0.5s ease-in-out;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.default-font {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.font1 {
-  font-family: "font1", Helvetica, sans-serif;
-}
-
-.font2 {
-  font-family: "font2", Helvetica, sans-serif;
-}
-
-.font3 {
-  font-family: "font3", Helvetica, sans-serif;
-}
-
-.default-font-size {
-  font-size: 1rem;
-}
-
-.small-font-size {
-  font-size: small;
-}
-
-.large-font-size {
-  font-size: larger;
-}
-
-.default-font-size2 {
-  font-size: 1.5rem;
-}
-
-.small-font-size2 {
-  font-size: 1.2rem;
-}
-
-.large-font-size2 {
-  font-size: 1.8rem;
 }/*# sourceMappingURL=style.css.map */

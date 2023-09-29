@@ -1,4 +1,25 @@
 class TodoListManager {
+  // 映射主題、字體和字體大小的對象
+  themeMap = {
+    "default-theme": "defaultThemeButton",
+    "light-theme": "lightThemeButton",
+    "night-theme": "nightThemeButton",
+    "nature-theme": "natureThemeButton",
+  };
+
+  fontMap = {
+    defaultFont: "defaultFont",
+    font1: "font1",
+    font2: "font2",
+    font3: "font3",
+  };
+
+  fontSizeMap = {
+    "default-font-size": "mid",
+    "small-font-size": "small",
+    "large-font-size": "large",
+  };
+
   constructor() {
     this.bodyClassList = document.body.classList;
 
@@ -49,9 +70,36 @@ class TodoListManager {
     this.nowFont = JSON.parse(nowFontJSON) || "default-font";
     this.nowFontSize = JSON.parse(nowFontSizeJSON) || "default-font-size";
 
+    // 將存取值映射到對應的li元素
+    this.setMappedValue(this.themeMap, this.nowTheme, "themeMenu");
+    this.setMappedValue(this.fontMap, this.nowFont, "fontChangeMenu");
+    this.setMappedValue(this.fontSizeMap, this.nowFontSize, "fontSizeMenu");
+
     this.setTheme(this.nowTheme);
     this.setFont(this.nowFont);
     this.setFontSize(this.nowFontSize);
+  }
+
+  // 將存取值映射到相應的li元素
+  setMappedValue(mapping, value, menuId) {
+    const menu = document.querySelector(`#${menuId}`);
+
+    if (mapping[value]) {
+      const liElement = document.querySelector(`#${mapping[value]}`);
+      if (liElement) {
+        // 移除所有li元素的selected類別
+        menu.querySelectorAll("li").forEach((li) => {
+          li.classList.remove("selected");
+        });
+
+        // 添加selected類別給當前點擊的li
+        liElement.classList.add("selected");
+      } else {
+        console.log(`No matching li element found for value: ${value}`);
+      }
+    } else {
+      console.log(`No mapping found for value: ${value}`);
+    }
   }
 
   // 清除設定
@@ -120,13 +168,27 @@ class TodoListManager {
       natureThemeButton: "nature-theme",
     };
 
-    for (const [buttonId, themeName] of Object.entries(themes)) {
-      const button = document.querySelector(`#${buttonId}`);
-      button.addEventListener("click", () => {
-        this.nowTheme = themeName;
+    const themeButtons = Object.entries(themes).map(([buttonId, themeName]) => {
+      return {
+        button: document.querySelector(`#${buttonId}`),
+        themeName,
+      };
+    });
+
+    themeButtons.forEach((item) => {
+      item.button.addEventListener("click", () => {
+        // 移除所有li元素的selected類別
+        themeButtons.forEach((button) => {
+          button.button.classList.remove("selected");
+        });
+
+        // 添加selected類別給當前點擊的li
+        item.button.classList.add("selected");
+
+        this.nowTheme = item.themeName;
         this.setTheme(this.nowTheme);
       });
-    }
+    });
   }
   // 為"字體切換"選項綁定點擊事件
   setupFonts() {
@@ -137,13 +199,27 @@ class TodoListManager {
       font3: "font3",
     };
 
-    for (const [liId, fontName] of Object.entries(fonts)) {
-      const font = document.querySelector(`#${liId}`);
-      font.addEventListener("click", () => {
-        this.nowFont = fontName;
-        this.setFont(fontName);
+    const fontItems = Object.entries(fonts).map(([liId, fontName]) => {
+      return {
+        item: document.querySelector(`#${liId}`),
+        fontName,
+      };
+    });
+
+    fontItems.forEach((item) => {
+      item.item.addEventListener("click", () => {
+        // 移除所有li元素的selected類別
+        fontItems.forEach((fontItem) => {
+          fontItem.item.classList.remove("selected");
+        });
+
+        // 添加selected類別給當前點擊的li
+        item.item.classList.add("selected");
+
+        this.nowFont = item.fontName;
+        this.setFont(item.fontName);
       });
-    }
+    });
   }
   // 為"字型大小切換"選項綁定點擊事件
   setupFontSizes() {
@@ -153,13 +229,29 @@ class TodoListManager {
       large: "large-font-size",
     };
 
-    for (const [liId, fontSizeName] of Object.entries(fontSizes)) {
-      const fontSize = document.querySelector(`#${liId}`);
-      fontSize.addEventListener("click", () => {
-        this.nowFontSize = fontSizeName;
-        this.setFontSize(fontSizeName);
+    const fontSizeItems = Object.entries(fontSizes).map(
+      ([liId, fontSizeName]) => {
+        return {
+          item: document.querySelector(`#${liId}`),
+          fontSizeName,
+        };
+      }
+    );
+
+    fontSizeItems.forEach((item) => {
+      item.item.addEventListener("click", () => {
+        // 移除所有li元素的selected類別
+        fontSizeItems.forEach((fontSizeItem) => {
+          fontSizeItem.item.classList.remove("selected");
+        });
+
+        // 添加selected類別給當前點擊的li
+        item.item.classList.add("selected");
+
+        this.nowFontSize = item.fontSizeName;
+        this.setFontSize(item.fontSizeName);
       });
-    }
+    });
   }
 
   // 設定事件監聽器

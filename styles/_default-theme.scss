@@ -36,10 +36,21 @@
       color: inherit;
     }
 
-    ul.setting-list li span.selectorStyle,
-    .sub-setting-list li {
-      &:hover {
-        background-color: #969393;
+    ul.setting-list li {
+      span.selectorStyle {
+        &:hover {
+          background-color: #969393;
+        }
+      }
+      ul.sub-setting-list {
+        li {
+          &:hover {
+            background-color: #969393;
+          }
+        }
+        li.selected {
+          color: #93abec;
+        }
       }
     }
   }
