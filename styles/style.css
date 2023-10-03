@@ -88,6 +88,9 @@
 .default-theme aside ul.setting-list li ul.sub-setting-list li.selected {
   color: #93abec;
 }
+.default-theme aside ul.setting-list li#autoSwitchButton.selected {
+  color: #93abec;
+}
 .default-theme button {
   border: none;
   cursor: pointer;
@@ -97,6 +100,7 @@
   padding: 1rem 0;
   position: relative;
   text-align: center;
+  transition: all 0.5s ease-in-out;
 }
 .default-theme header #openSidebarButton {
   position: absolute;
@@ -109,6 +113,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  transition: all 0.5s ease-in-out;
 }
 .default-theme main .input-container {
   width: 85%;
@@ -173,6 +178,7 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
 }
 .default-theme aside #closeSidebarButton {
   position: relative;
@@ -273,6 +279,9 @@
 .light-theme aside ul.setting-list li ul.sub-setting-list li.selected {
   color: #9d7e22;
 }
+.light-theme aside ul.setting-list li#autoSwitchButton.selected {
+  color: #9d7e22;
+}
 .light-theme button {
   border: none;
   cursor: pointer;
@@ -282,6 +291,7 @@
   padding: 1rem 0;
   position: relative;
   text-align: center;
+  transition: all 0.5s ease-in-out;
 }
 .light-theme header #openSidebarButton {
   position: absolute;
@@ -294,6 +304,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  transition: all 0.5s ease-in-out;
 }
 .light-theme main .input-container {
   width: 85%;
@@ -358,6 +369,7 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
 }
 .light-theme aside #closeSidebarButton {
   position: relative;
@@ -469,6 +481,9 @@
 .night-theme aside ul.setting-list li ul.sub-setting-list li.selected {
   color: rgb(238, 182, 182);
 }
+.night-theme aside ul.setting-list li#autoSwitchButton.selected {
+  color: rgb(238, 182, 182);
+}
 .night-theme button {
   border: none;
   cursor: pointer;
@@ -478,6 +493,7 @@
   padding: 1rem 0;
   position: relative;
   text-align: center;
+  transition: all 0.5s ease-in-out;
 }
 .night-theme header #openSidebarButton {
   position: absolute;
@@ -490,6 +506,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  transition: all 0.5s ease-in-out;
 }
 .night-theme main .input-container {
   width: 85%;
@@ -554,6 +571,7 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
 }
 .night-theme aside #closeSidebarButton {
   position: relative;
@@ -661,6 +679,9 @@
 .nature-theme aside ul.setting-list li ul.sub-setting-list li.selected {
   color: #66f49f;
 }
+.nature-theme aside ul.setting-list li#autoSwitchButton.selected {
+  color: #66f49f;
+}
 .nature-theme button {
   border: none;
   cursor: pointer;
@@ -670,6 +691,7 @@
   padding: 1rem 0;
   position: relative;
   text-align: center;
+  transition: all 0.5s ease-in-out;
 }
 .nature-theme header #openSidebarButton {
   position: absolute;
@@ -682,6 +704,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  transition: all 0.5s ease-in-out;
 }
 .nature-theme main .input-container {
   width: 85%;
@@ -746,6 +769,7 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
 }
 .nature-theme aside #closeSidebarButton {
   position: relative;
@@ -814,7 +838,6 @@ body {
   flex-direction: column;
   height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
-  transition: all 0.5s ease-in-out;
 }
 
 * {

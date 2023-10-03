@@ -54,21 +54,28 @@
       color: inherit;
     }
 
-    ul.setting-list li {
-      span.selectorStyle {
-        &:hover {
-          background-color: rgb(132, 130, 130);
-        }
-      }
-      ul.sub-setting-list {
-        li {
+    ul.setting-list {
+      li {
+        span.selectorStyle {
           &:hover {
             background-color: rgb(132, 130, 130);
           }
         }
-        li.selected {
-          color: rgb(238, 182, 182);
+
+        ul.sub-setting-list {
+          li {
+            &:hover {
+              background-color: rgb(132, 130, 130);
+            }
+          }
+          li.selected {
+            color: rgb(238, 182, 182);
+          }
         }
+      }
+
+      li#autoSwitchButton.selected {
+        color: rgb(238, 182, 182);
       }
     }
   }
