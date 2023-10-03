@@ -418,7 +418,7 @@ class TodoListManager {
     const currentTime = new Date();
     const hours = currentTime.getHours();
 
-    const nightModeStartHour = 14;
+    const nightModeStartHour = 18;
     const nightModeEndHour = 6;
 
     let nightTheme = "night-theme";
