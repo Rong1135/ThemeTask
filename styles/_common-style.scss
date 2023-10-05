@@ -74,6 +74,13 @@
         .text-area {
           flex-grow: 1;
         }
+        button.flag-button {
+          background-color: inherit;
+          color: black;
+          margin: 0 0.5rem;
+          padding: 0.2rem 0.5rem;
+          font-size: large;
+        }
         // 刪除按鈕
         button.delete-button {
           margin: 0 0.5rem;

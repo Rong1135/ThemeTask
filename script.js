@@ -524,11 +524,19 @@ class TodoListManager {
     textParagraph.classList.add("text-area");
     textParagraph.textContent = inputValue;
 
+    const flagButton = document.createElement("button");
+    flagButton.classList.add("flag-button");
+    flagButton.classList.add("button-group");
+    flagButton.textContent = "\u2690";
+
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-button");
     deleteButton.classList.add("button-group");
     deleteButton.textContent = "\u00D7";
 
+    flagButton.addEventListener("click", () =>
+      this.handleFlagButtonClick(flagButton)
+    );
     deleteButton.addEventListener("click", () =>
       this.handleDeleteButtonClick(todoItemDiv)
     );
@@ -538,9 +546,25 @@ class TodoListManager {
 
     todoItemDiv.appendChild(checkboxInput);
     todoItemDiv.appendChild(textParagraph);
+    todoItemDiv.appendChild(flagButton);
     todoItemDiv.appendChild(deleteButton);
 
     this.todoContainer.appendChild(todoItemDiv);
+  }
+
+  // 切換旗幟(黑/白)，用來標記項目
+  handleFlagButtonClick(flagButton) {
+    const todoItemDiv = flagButton.parentNode;
+    const flagIcon = flagButton.textContent;
+    console.log(todoItemDiv);
+
+    if (flagIcon === "\u2690") {
+      flagButton.textContent = "\u2691";
+      todoItemDiv.classList.add("completed");
+    } else {
+      flagButton.textContent = "\u2690";
+      todoItemDiv.classList.remove("completed");
+    }
   }
 
   // 刪除項目按鈕的方法，並檢查 completedContainer 內是否還有其他項目

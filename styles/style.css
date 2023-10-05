@@ -158,6 +158,14 @@
 .default-theme main .todo-completed-container .todolist-item .text-area {
   flex-grow: 1;
 }
+.default-theme main .todolist-container .todolist-item button.flag-button,
+.default-theme main .todo-completed-container .todolist-item button.flag-button {
+  background-color: inherit;
+  color: black;
+  margin: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-size: large;
+}
 .default-theme main .todolist-container .todolist-item button.delete-button,
 .default-theme main .todo-completed-container .todolist-item button.delete-button {
   margin: 0 0.5rem;
@@ -348,6 +356,14 @@
 .light-theme main .todolist-container .todolist-item .text-area,
 .light-theme main .todo-completed-container .todolist-item .text-area {
   flex-grow: 1;
+}
+.light-theme main .todolist-container .todolist-item button.flag-button,
+.light-theme main .todo-completed-container .todolist-item button.flag-button {
+  background-color: inherit;
+  color: black;
+  margin: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-size: large;
 }
 .light-theme main .todolist-container .todolist-item button.delete-button,
 .light-theme main .todo-completed-container .todolist-item button.delete-button {
@@ -551,6 +567,14 @@
 .night-theme main .todo-completed-container .todolist-item .text-area {
   flex-grow: 1;
 }
+.night-theme main .todolist-container .todolist-item button.flag-button,
+.night-theme main .todo-completed-container .todolist-item button.flag-button {
+  background-color: inherit;
+  color: black;
+  margin: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-size: large;
+}
 .night-theme main .todolist-container .todolist-item button.delete-button,
 .night-theme main .todo-completed-container .todolist-item button.delete-button {
   margin: 0 0.5rem;
@@ -748,6 +772,14 @@
 .nature-theme main .todolist-container .todolist-item .text-area,
 .nature-theme main .todo-completed-container .todolist-item .text-area {
   flex-grow: 1;
+}
+.nature-theme main .todolist-container .todolist-item button.flag-button,
+.nature-theme main .todo-completed-container .todolist-item button.flag-button {
+  background-color: inherit;
+  color: black;
+  margin: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-size: large;
 }
 .nature-theme main .todolist-container .todolist-item button.delete-button,
 .nature-theme main .todo-completed-container .todolist-item button.delete-button {
