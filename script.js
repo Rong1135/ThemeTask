@@ -259,12 +259,17 @@ class TodoListManager {
     this.updateClassList(this.fontMap, "fontChangeMenu", this.nowFont);
     this.updateClassList(this.fontSizeMap, "fontSizeMenu", this.nowFontSize);
 
+    this.temporaryTheme = this.nowTheme;
+    localStorage.setItem("temporaryTheme", this.temporaryTheme);
+
     this.applySettings();
   }
 
   // 設定主題
   changeTheme(themeName) {
     this.nowTheme = themeName;
+    this.temporaryTheme = themeName;
+    localStorage.setItem("temporaryTheme", this.temporaryTheme);
     this.updateClassList(this.themeMap, "themeMenu", this.nowTheme);
     this.applySettings();
   }
@@ -408,7 +413,7 @@ class TodoListManager {
     } else {
       clearInterval(this.autoSwitchInterval);
       localStorage.setItem("autoSwitchEnabled", "false");
-      this.nowTheme = localStorage.getItem("theme");
+      this.nowTheme = localStorage.getItem("temporaryTheme");
       this.applySettings();
     }
   }
@@ -427,8 +432,14 @@ class TodoListManager {
     if (hours >= nightModeStartHour || hours < nightModeEndHour) {
       newTheme = nightTheme;
     } else {
-      let theme = localStorage.getItem("theme");
-      newTheme = theme;
+      let saveTheme = localStorage.getItem("theme");
+      let theme = localStorage.getItem("temporaryTheme");
+
+      if (saveTheme === theme) {
+        newTheme = saveTheme;
+      } else {
+        newTheme = theme;
+      }
     }
 
     this.changeTheme(newTheme);
