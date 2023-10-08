@@ -19,6 +19,24 @@
       left: 10%;
       font-size: large;
     }
+
+    div.filter-options {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 30%;
+      left: 82%;
+
+      select#filter {
+        display: none;
+      }
+
+      select#filter.show {
+        display: block;
+      }
+    }
   }
   main {
     flex-grow: 1;

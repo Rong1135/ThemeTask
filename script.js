@@ -2,6 +2,7 @@ class TodoListManager {
   constructor() {
     this.initializeElements();
     this.setupEventListeners();
+    this.setupFilterOption();
     this.loadSettings();
     this.setupAutoSwitch();
   }
@@ -12,6 +13,10 @@ class TodoListManager {
     this.main = document.querySelector("main");
     this.header = document.querySelector("header");
     this.aside = document.querySelector("aside");
+    // header
+    this.filterOptions = document.querySelector(".filter-options");
+    this.filterLabel = document.querySelector("#filterLabel");
+    this.filterSelect = document.querySelector("#filter");
     // aside Elements
     this.openSidebarButton = document.querySelector("#openSidebarButton");
     this.closeSidebarButton = document.querySelector("#closeSidebarButton");
@@ -58,6 +63,8 @@ class TodoListManager {
 
   // 設定事件監聽器
   setupEventListeners() {
+    // header
+    this.filterLabel.addEventListener("click", () => this.openSelect());
     // <aside> 的點擊事件
     this.openSidebarButton.addEventListener("click", () => this.openSidebar());
     this.closeSidebarButton.addEventListener("click", () =>
@@ -94,6 +101,83 @@ class TodoListManager {
     );
   }
 
+  // To Do 的篩選器
+  setupFilterOption() {
+    this.filterSelect.addEventListener("change", () => {
+      const selectedOption = this.filterSelect.value;
+
+      if (selectedOption === "completed") {
+        this.filterCompletedItems();
+      } else {
+        this.showAllItems();
+      }
+    });
+  }
+
+  // 篩選已標記項目
+  filterCompletedItems() {
+    const completedItems1 = this.todoContainer.querySelectorAll(
+      ".todolist-item.completed"
+    );
+    const completedItems2 = this.completedContainer.querySelectorAll(
+      ".todolist-item.completed"
+    );
+    const nonCompletedItems1 = this.todoContainer.querySelectorAll(
+      ".todolist-item:not(.completed)"
+    );
+    const nonCompletedItems2 = this.completedContainer.querySelectorAll(
+      ".todolist-item:not(.completed)"
+    );
+
+    // 隱藏未標記待辦事項
+    nonCompletedItems1.forEach((item) => {
+      item.style.display = "none";
+    });
+    nonCompletedItems2.forEach((item) => {
+      item.style.display = "none";
+    });
+
+    // 顯示已標記待辦事項
+    completedItems1.forEach((item) => {
+      item.style.display = "flex";
+    });
+    completedItems2.forEach((item) => {
+      item.style.display = "flex";
+    });
+  }
+
+  // 顯示所有項目
+  showAllItems() {
+    const completedItems1 = this.todoContainer.querySelectorAll(
+      ".todolist-item.completed"
+    );
+    const completedItems2 = this.completedContainer.querySelectorAll(
+      ".todolist-item.completed"
+    );
+    const nonCompletedItems1 = this.todoContainer.querySelectorAll(
+      ".todolist-item:not(.completed)"
+    );
+    const nonCompletedItems2 = this.completedContainer.querySelectorAll(
+      ".todolist-item:not(.completed)"
+    );
+
+    // 隱藏未標記待辦事項
+    nonCompletedItems1.forEach((item) => {
+      item.style.display = "flex";
+    });
+    nonCompletedItems2.forEach((item) => {
+      item.style.display = "flex";
+    });
+
+    // 顯示已標記待辦事項
+    completedItems1.forEach((item) => {
+      item.style.display = "flex";
+    });
+    completedItems2.forEach((item) => {
+      item.style.display = "flex";
+    });
+  }
+
   // 為"主題背景色切換"選項綁定點擊事件
   setupThemeButtons() {
     const themes = {
@@ -107,28 +191,6 @@ class TodoListManager {
       const button = document.querySelector(`#${buttonId}`);
       button.addEventListener("click", () => this.changeTheme(themeName));
     }
-    // const themeButtons = Object.entries(themes).map(([buttonId, themeName]) => {
-    //   return {
-    //     button: document.querySelector(`#${buttonId}`),
-    //     themeName,
-    //   };
-    // });
-
-    // themeButtons.forEach((item) => {
-    //   item.button.addEventListener("click", () => {
-    //     this.nowTheme = item.themeName;
-
-    //     // 移除所有li元素的selected類別
-    //     themeButtons.forEach((button) => {
-    //       button.button.classList.remove("selected");
-    //     });
-
-    //     // 添加selected類別給當前點擊的li
-    //     item.button.classList.add("selected");
-
-    //     this.setTheme(this.nowTheme);
-    //   });
-    // });
   }
   // 為"字體切換"選項綁定點擊事件
   setupFonts() {
@@ -143,27 +205,6 @@ class TodoListManager {
       const item = document.querySelector(`#${liId}`);
       item.addEventListener("click", () => this.changeFont(fontName));
     }
-    // const fontItems = Object.entries(fonts).map(([liId, fontName]) => {
-    //   return {
-    //     item: document.querySelector(`#${liId}`),
-    //     fontName,
-    //   };
-    // });
-
-    // fontItems.forEach((item) => {
-    //   item.item.addEventListener("click", () => {
-    //     // 移除所有li元素的selected類別
-    //     fontItems.forEach((fontItem) => {
-    //       fontItem.item.classList.remove("selected");
-    //     });
-
-    //     // 添加selected類別給當前點擊的li
-    //     item.item.classList.add("selected");
-
-    //     this.nowFont = item.fontName;
-    //     this.setFont(item.fontName);
-    //   });
-    // });
   }
   // 為"字型大小切換"選項綁定點擊事件
   setupFontSizes() {
@@ -177,29 +218,6 @@ class TodoListManager {
       const item = document.querySelector(`#${liId}`);
       item.addEventListener("click", () => this.changeFontSize(fontSizeName));
     }
-    // const fontSizeItems = Object.entries(fontSizes).map(
-    //   ([liId, fontSizeName]) => {
-    //     return {
-    //       item: document.querySelector(`#${liId}`),
-    //       fontSizeName,
-    //     };
-    //   }
-    // );
-
-    // fontSizeItems.forEach((item) => {
-    //   item.item.addEventListener("click", () => {
-    //     // 移除所有li元素的selected類別
-    //     fontSizeItems.forEach((fontSizeItem) => {
-    //       fontSizeItem.item.classList.remove("selected");
-    //     });
-
-    //     // 添加selected類別給當前點擊的li
-    //     item.item.classList.add("selected");
-
-    //     this.nowFontSize = item.fontSizeName;
-    //     this.setFontSize(item.fontSizeName);
-    //   });
-    // });
   }
 
   // 主題預覽事件：當游標移到選項上時，出現預覽畫面
@@ -210,39 +228,6 @@ class TodoListManager {
       option.addEventListener("mouseover", () => this.previewTheme(option.id));
       option.addEventListener("mouseout", () => this.hideThemePreview());
     }
-
-    // themeOptions.forEach((option) => {
-    //   option.addEventListener("mouseover", () => {
-    //     let themeName = this.nowTheme;
-    //     if (option.id === "defaultThemeButton") {
-    //       themeName = "default-theme";
-    //     } else if (option.id === "lightThemeButton") {
-    //       themeName = "light-theme";
-    //     } else if (option.id === "nightThemeButton") {
-    //       themeName = "night-theme";
-    //     } else if (option.id === "natureThemeButton") {
-    //       themeName = "nature-theme";
-    //     }
-    //     // 將網頁主題變成游標所指主題
-    //     this.setTheme(themeName);
-    //     // 用以下方法捕捉 HTML 畫面
-    //     this.captureWebpageScreenshot();
-    //     // 顯示預覽畫面
-    //     this.themePreview.style.display = "block";
-    //     // 恢復原有主題設定
-    //     this.setTheme(this.nowTheme);
-
-    //     // 當手動切換主題時，取消自動切換背景功能
-    //     clearInterval(this.autoSwitchInterval);
-    //     localStorage.setItem("autoSwitchEnabled", "false");
-    //     this.autoSwitchButton.classList.remove("selected");
-    //   });
-
-    //   // 當游標移開時，取消顯示預覽畫面
-    //   option.addEventListener("mouseout", () => {
-    //     this.themePreview.style.display = "none";
-    //   });
-    // });
   }
 
   // 初始化設定
@@ -307,6 +292,11 @@ class TodoListManager {
     } else {
       console.log(`No mapping found for value: ${value}`);
     }
+  }
+
+  // 開啟篩選器
+  openSelect() {
+    this.filterSelect.classList.toggle("show");
   }
 
   // 開啟/關閉 <aside>
@@ -556,7 +546,6 @@ class TodoListManager {
   handleFlagButtonClick(flagButton) {
     const todoItemDiv = flagButton.parentNode;
     const flagIcon = flagButton.textContent;
-    console.log(todoItemDiv);
 
     if (flagIcon === "\u2690") {
       flagButton.textContent = "\u2691";
@@ -570,7 +559,7 @@ class TodoListManager {
   // 刪除項目按鈕的方法，並檢查 completedContainer 內是否還有其他項目
   handleDeleteButtonClick(todoItemDiv) {
     const parentContainer = todoItemDiv.closest(
-      ".todolist-container, .todo-completed-container"
+      ".todolist-container, .todo-completed-container,todo-flag-container"
     );
     if (parentContainer) {
       parentContainer.removeChild(todoItemDiv);

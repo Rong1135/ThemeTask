@@ -108,6 +108,21 @@
   left: 10%;
   font-size: large;
 }
+.default-theme header div.filter-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 82%;
+}
+.default-theme header div.filter-options select#filter {
+  display: none;
+}
+.default-theme header div.filter-options select#filter.show {
+  display: block;
+}
 .default-theme main {
   flex-grow: 1;
   width: 100%;
@@ -306,6 +321,21 @@
   top: 30%;
   left: 10%;
   font-size: large;
+}
+.light-theme header div.filter-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 82%;
+}
+.light-theme header div.filter-options select#filter {
+  display: none;
+}
+.light-theme header div.filter-options select#filter.show {
+  display: block;
 }
 .light-theme main {
   flex-grow: 1;
@@ -517,6 +547,21 @@
   left: 10%;
   font-size: large;
 }
+.night-theme header div.filter-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 82%;
+}
+.night-theme header div.filter-options select#filter {
+  display: none;
+}
+.night-theme header div.filter-options select#filter.show {
+  display: block;
+}
 .night-theme main {
   flex-grow: 1;
   width: 100%;
@@ -722,6 +767,21 @@
   top: 30%;
   left: 10%;
   font-size: large;
+}
+.nature-theme header div.filter-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 82%;
+}
+.nature-theme header div.filter-options select#filter {
+  display: none;
+}
+.nature-theme header div.filter-options select#filter.show {
+  display: block;
 }
 .nature-theme main {
   flex-grow: 1;
