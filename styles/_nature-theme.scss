@@ -15,6 +15,16 @@
       background-color: #425f57;
       color: #a8e890;
     }
+
+    div.filter-options > select#filter {
+      background-color: inherit;
+      color: #a8e890;
+
+      option {
+        background-color: #a8e890;
+        color: #425f57;
+      }
+    }
   }
 
   main {

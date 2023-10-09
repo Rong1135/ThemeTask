@@ -5,6 +5,16 @@
   header {
     background-color: #3f2305;
     color: #f5f5f5;
+
+    div.filter-options > select#filter {
+      background-color: inherit;
+      color: #f2ead3;
+
+      option {
+        background-color: #3f2305;
+        color: white;
+      }
+    }
   }
 
   main {

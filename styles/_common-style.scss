@@ -30,11 +30,13 @@
       left: 82%;
 
       select#filter {
-        display: none;
-      }
-
-      select#filter.show {
-        display: block;
+        border: none;
+        border-radius: 10px;
+        padding: 0.2rem;
+        background-color: inherit;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
       }
     }
   }

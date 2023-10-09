@@ -15,7 +15,6 @@ class TodoListManager {
     this.aside = document.querySelector("aside");
     // header
     this.filterOptions = document.querySelector(".filter-options");
-    this.filterLabel = document.querySelector("#filterLabel");
     this.filterSelect = document.querySelector("#filter");
     // aside Elements
     this.openSidebarButton = document.querySelector("#openSidebarButton");
@@ -63,8 +62,6 @@ class TodoListManager {
 
   // 設定事件監聽器
   setupEventListeners() {
-    // header
-    this.filterLabel.addEventListener("click", () => this.openSelect());
     // <aside> 的點擊事件
     this.openSidebarButton.addEventListener("click", () => this.openSidebar());
     this.closeSidebarButton.addEventListener("click", () =>
@@ -292,11 +289,6 @@ class TodoListManager {
     } else {
       console.log(`No mapping found for value: ${value}`);
     }
-  }
-
-  // 開啟篩選器
-  openSelect() {
-    this.filterSelect.classList.toggle("show");
   }
 
   // 開啟/關閉 <aside>

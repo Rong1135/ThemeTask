@@ -59,6 +59,16 @@
   background-color: #333;
   color: white;
 }
+.default-theme .button-group div.filter-options > select#filter,
+.default-theme header div.filter-options > select#filter {
+  background-color: inherit;
+  color: whitesmoke;
+}
+.default-theme .button-group div.filter-options > select#filter option,
+.default-theme header div.filter-options > select#filter option {
+  background-color: #333;
+  color: white;
+}
 .default-theme main .input-container #todoForm input#inputText[type=text] {
   background-color: #f4f4f4;
   border-bottom: 1px solid gray;
@@ -118,10 +128,13 @@
   left: 82%;
 }
 .default-theme header div.filter-options select#filter {
-  display: none;
-}
-.default-theme header div.filter-options select#filter.show {
-  display: block;
+  border: none;
+  border-radius: 10px;
+  padding: 0.2rem;
+  background-color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .default-theme main {
   flex-grow: 1;
@@ -273,6 +286,16 @@
   background-color: #3f2305;
   color: #f5f5f5;
 }
+.light-theme .button-group div.filter-options > select#filter,
+.light-theme header div.filter-options > select#filter {
+  background-color: inherit;
+  color: #f2ead3;
+}
+.light-theme .button-group div.filter-options > select#filter option,
+.light-theme header div.filter-options > select#filter option {
+  background-color: #3f2305;
+  color: white;
+}
 .light-theme main .input-container #todoForm input#inputText[type=text] {
   border-bottom: 1px solid #3f2305;
   background-color: #f2ead3;
@@ -332,10 +355,13 @@
   left: 82%;
 }
 .light-theme header div.filter-options select#filter {
-  display: none;
-}
-.light-theme header div.filter-options select#filter.show {
-  display: block;
+  border: none;
+  border-radius: 10px;
+  padding: 0.2rem;
+  background-color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .light-theme main {
   flex-grow: 1;
@@ -495,6 +521,14 @@
   background-color: black;
   color: white;
 }
+.night-theme header div.filter-options > select#filter {
+  background-color: inherit;
+  color: white;
+}
+.night-theme header div.filter-options > select#filter option {
+  background-color: white;
+  color: black;
+}
 .night-theme main .input-container #todoForm input#inputText[type=text] {
   border-bottom: 1px solid white;
   background-color: black;
@@ -557,10 +591,13 @@
   left: 82%;
 }
 .night-theme header div.filter-options select#filter {
-  display: none;
-}
-.night-theme header div.filter-options select#filter.show {
-  display: block;
+  border: none;
+  border-radius: 10px;
+  padding: 0.2rem;
+  background-color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .night-theme main {
   flex-grow: 1;
@@ -720,6 +757,14 @@
   background-color: #425f57;
   color: #a8e890;
 }
+.nature-theme header div.filter-options > select#filter {
+  background-color: inherit;
+  color: #a8e890;
+}
+.nature-theme header div.filter-options > select#filter option {
+  background-color: #a8e890;
+  color: #425f57;
+}
 .nature-theme main .input-container #todoForm input#inputText[type=text] {
   border-bottom: 1px solid #749f82;
   background-color: #cfff8d;
@@ -778,10 +823,13 @@
   left: 82%;
 }
 .nature-theme header div.filter-options select#filter {
-  display: none;
-}
-.nature-theme header div.filter-options select#filter.show {
-  display: block;
+  border: none;
+  border-radius: 10px;
+  padding: 0.2rem;
+  background-color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .nature-theme main {
   flex-grow: 1;

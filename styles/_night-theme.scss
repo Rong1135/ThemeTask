@@ -15,6 +15,16 @@
       background-color: black;
       color: white;
     }
+
+    div.filter-options > select#filter {
+      background-color: inherit;
+      color: white;
+
+      option {
+        background-color: white;
+        color: black;
+      }
+    }
   }
 
   main {
